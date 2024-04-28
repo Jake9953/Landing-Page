@@ -241,4 +241,14 @@ button.bt{
 
 
 /* Footer () */
+.footer{
+  background-color: #1F2937;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
 /* End of footer */
