@@ -1,3 +1,6 @@
+/* Where colors are commented, I was using them for debugging */
+
+/* Universal for the page */
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +15,7 @@ body{
   justify-content: center;
 }
 
+/* Start of Section 1 (Where we have header, links, the text and Image) */
 .logo{
   text-transform: capitalize;
   font-size: 24px;
@@ -99,7 +103,6 @@ img{
 .text2{
   font-size: 18px;
   color: #E5E7EB;
-  /* max-width: 50%; */
   /* border: 2px solid rgb(0, 253, 177); */
 }
 
@@ -114,6 +117,19 @@ button{
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
-.pic{
-  /* border: 2px solid rgb(11, 252, 3); */
-}
+/* End of Section 1 */
+
+/* Section 2 () */
+/* End of Section 2 */
+
+
+/* Section 3 () */
+/* End of Section 3 */
+
+
+/* Section 4 () */
+/* End of Section 4 */
+
+
+/* Footer () */
+/* End of footer */
