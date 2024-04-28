@@ -15,7 +15,12 @@ body{
   justify-content: center;
 }
 
+.container{
+  width: 100%;
+}
+
 /* Start of Section 1 (Where we have header, links, the text and Image) */
+
 .logo{
   text-transform: capitalize;
   font-size: 24px;
@@ -35,9 +40,11 @@ a{
 img{
   width: 100%;
   height: 100%;
+  border-radius: 20px;
   object-fit: contain;
+  
 }
-.container{
+.container0{
   background-color: #1F2937;
   width: 100%;
   display: flex;
@@ -119,8 +126,43 @@ button{
 }
 /* End of Section 1 */
 
-/* Section 2 () */
+/* Section 2 */
+.container2{
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ /* border: 7px solid green; */
+}
+
+.text3{
+  font-size: 36px;
+  font-weight: bolder;
+  color: #1F2937;
+ text-transform: capitalize;
+ text-align: center;
+ margin: 20px;
+ /* border: 6px solid rgb(0, 17, 255); */
+}
+
+.random{
+ width: 100%;
+ display: flex;
+ justify-content: center; 
+ align-items: center;
+ margin-bottom: 48px;
+ /* border: 5px solid rgb(255, 3, 3); */
+}
+
+.img{
+ width: 15%;
+ margin: 15px;
+ /*border: 4px solid rgb(60, 255, 0);
+ */
+}
 /* End of Section 2 */
+
 
 
 /* Section 3 () */
