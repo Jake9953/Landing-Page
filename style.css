@@ -45,6 +45,7 @@ body {
   background-color: #222f4e;
   border: none;
 }
+
 /* Services Section */
 .service-box {
   background-size: cover;
@@ -74,86 +75,38 @@ body {
   transform: scale(1.05);
 }
 
-/* Adding slight background color overlay for better text visibility */
-.service-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-  border-radius: 8px;
-}
-
-.service-box * {
-  position: relative;
-  z-index: 2;
-}
-
-
-/* Flexbox for small screens: align icons row-wise with spacing */
-@media (max-width: 991px) {
-  .navbar-nav {
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-
-  .navbar-nav .nav-item {
-    margin: 5px 0;
-  }
-
-  .navbar-nav i {
-    font-size: 1.8rem;
-    color: #0d6efd;
-  }
-}
-
-/* About Me Section */
-.about-me {
-  background-color: #f1f3f5;
-}
-
-.about-me h2 {
-  font-weight: 700;
-  color: #222f4e;
-}
-
-.about-me p {
-  font-size: 1rem;
-  color: #6c757d;
-}
-
-.about-me img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-
+/* Responsive services section */
 @media (max-width: 768px) {
-  .about-me .row {
-    text-align: center;
-  }
-
-  .about-me img {
-    margin-bottom: 20px;
+  .service-box {
+    margin-bottom: 15px;
   }
 }
 
-/* Hero Section */
+/* Hero section */
 .hero {
-  padding: 100px 0;
-  background: url("https://cdn.pixabay.com/photo/2017/01/29/13/20/laptop-2017978_1280.png") no-repeat center center/cover;
+  background-image: url("./images/hero-large.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 50px 0;
+    background-image: url("./images/hero-small.jpg");
+    padding: 100px 0;
   }
 
-  .hero .btn {
-    width: 100%;
+  .hero h1 {
+    font-size: 2.5rem;
   }
 }
 
@@ -162,12 +115,120 @@ footer {
   background-color: #222f4e;
   color: #fff;
 }
-
-footer p {
+/* Base styles */
+body {
+  font-family: "Montserrat", sans-serif;
   margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222f4e;
+}
+
+.nav-link {
+  color: #6c757d;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  color: #222f4e;
+}
+
+/* Large screen flexbox: separate logo and social icons */
+.navbar-collapse {
+  justify-content: space-between;
+}
+
+/* Social icons styling */
+.navbar-nav i {
+  font-size: 1.5rem;
+  color: #222f4e;
+}
+
+.btn-primary {
+  background-color: #222f4e;
+  border: none;
+}
+
+/* Services Section */
+.service-box {
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.service-box h4 {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.service-box p {
   font-size: 0.9rem;
 }
 
-.text-center {
-  text-align: center;
+.service-box:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive services section */
+@media (max-width: 768px) {
+  .service-box {
+    margin-bottom: 15px;
+  }
+}
+
+/* Hero section */
+.hero {
+  background-image: url("https://cdn.pixabay.com/photo/2017/01/29/13/20/laptop-2017978_1280.png");
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-image: url("https://cdn.pixabay.com/photo/2017/08/25/13/36/code-geek-2680204_1280.png");
+    padding: 100px 0;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #222f4e;
+  color: #fff;
 }
