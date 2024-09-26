@@ -147,7 +147,7 @@ body {
 /* For larger screens */
 @media (min-width: 769px) {
   .container-quotes {
-    padding: 20px;
+    padding: 15px;
     flex-direction: row; /* Align sections side by side */
     justify-content: space-between;
   }
