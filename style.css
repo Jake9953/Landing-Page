@@ -1,254 +1,61 @@
-/* Where colors are commented, I was using them for debugging */
-
-/* Universal for the page */
-* {
+/* Base styles */
+body {
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background-color: #f8f9fa;
 }
 
-body{
-  background-color: aliceblue;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #e7e7e7;
 }
 
-.container{
-  width: 100%;
+.nav-link {
+  color: #6c757d;
 }
 
-/* Start of Section 1 (Where we have header, links, the text and Image) */
-
-.logo{
-  text-transform: capitalize;
-  font-size: 24px;
-  color: #F9FAF8;
-
-}
-ul{
-  list-style: none;
-}
-
-a{
-  text-decoration: none;
-  color: #e5e7eb;
-  font-size: 18px;
-}
-
-img{
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  object-fit: contain;
-  
-}
-.container0{
-  background-color: #1F2937;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* border: 2px solid yellowgreen; */
-}
-
-.container1{
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-   /* border: 2px solid rgb(240, 15, 15); */
-}
-
-
-.logo{
-  display: flex;
-  align-self: flex-start;
-   /* border: 2px solid rgb(9, 169, 233); */
-}
-
-.right-links{
-  display: flex;
-   /* border: 2px solid rgb(76, 4, 243); */
-}
-
-.right-links li{
-  display: inline-block;
-}
-
-
-.container1-2{
-  width: 100%;
-  margin: 30px;
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  /* border: 12px solid rgb(212, 107, 21); */
-}
-
-.main-text{
-  display: flex;
-  flex: 0 1 37%;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  justify-content: space-between;
-  /* border: 8px solid rgb(224, 1, 253); */
-}
-
-
-.text1{
-  font-size: 48px;
-  color: #F9FAF8;
-  font-weight: bolder;
-  display: flex;
-  /* border: 2px solid rgb(22, 22, 214); */
-}
-
-.text2{
-  font-size: 18px;
-  color: #E5E7EB;
-  /* border: 2px solid rgb(0, 253, 177); */
-}
-
-button{
-  background-color: #3882f6;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
+.navbar-toggler {
   border: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-}
-/* End of Section 1 */
-
-/* Section 2 */
-.container2{
- width: 100%;
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- /* border: 7px solid green; */
 }
 
-.text3{
-  font-size: 36px;
-  font-weight: bolder;
-  color: #1F2937;
- text-transform: capitalize;
- text-align: center;
- margin: 20px;
- /* border: 6px solid rgb(0, 17, 255); */
+/* Hero Section */
+.hero {
+  padding: 100px 0;
+  background-color: #f1f3f5;
 }
 
-.random{
- width: 100%;
- display: flex;
- justify-content: center; 
- align-items: center;
- margin-bottom: 48px;
- /* border: 5px solid rgb(255, 3, 3); */
+.hero h1 {
+  font-weight: 700;
+  color: #222f4e;
 }
 
-.img{
- width: 15%;
- margin: 15px;
- /*border: 4px solid rgb(60, 255, 0);
- */
-}
-/* End of Section 2 */
-
-
-
-/* Section 3 */
-.container3{
- width: 100%;
- display: flex;
- flex-direction: column; 
- justify-content: center; 
- align-items: center; 
- background-color: #E5E7EB;
- padding: 20px; 
-  /* border: 4px solid yellowgreen; */
+.hero .btn {
+  background-color: #222f4e;
+  color: #fff;
 }
 
-.txt{
- margin: 0 auto;
- font-size: 36px;
- font-style: italic;
- color: #1f2937;
- text-align: center;
- max-width: 75%; 
-  /* border: 2px solid rgb(28, 4, 240); */
+.hero .btn:hover {
+  background-color: #1b253a;
 }
 
-.said{
-  font-weight: bold;
- align-self: flex-end; 
- margin-top: auto; 
- margin-right: 13%;
- /* border: 1px solid rgb(255, 4, 4); */
-}
-/* End of Section 3 */
-
-
-
-/* Section 4 () */
-.container4{
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   /* border: 5px solid rgb(247, 4, 25); */
+/* Services Section */
+.services {
+  background-color: #fff;
 }
 
-.container5{
-  width: 75%;
-  background-color: #3882f6;
-  border-radius: 5px;
-  margin: 50px;
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
+.service-box i {
+  color: #3882f6;
 }
 
-
-.inner-txt{
-  color: white;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
+.service-box h4 {
+  margin-top: 10px;
+  font-weight: 700;
 }
 
-.txt1{
-  font-size: 25px;
-  font-weight: bold;
+/* Footer */
+footer {
+  background-color: #222f4e;
+  color: #fff;
 }
-
-
-button.bt{
-  border: 2px solid;
-  padding: 8px 12px;
-  border-radius: 5px;
-  margin-left: 30px;
-  }
-/* End of Section 4 */
-
-
-/* Footer () */
-.footer{
-  background-color: #1F2937;
-  color: white;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-
-}
-/* End of footer */
