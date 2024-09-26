@@ -87,6 +87,10 @@ body {
   margin: 0 auto; /* Center the container */
 }
 
+#text{
+  text-align: center;
+}
+
 /* Styling for the Quote Section */
 #quote-section {
   background: linear-gradient(135deg, #6a11cb, #2575fc); /* Cool gradient */
@@ -143,6 +147,7 @@ body {
 /* For larger screens */
 @media (min-width: 769px) {
   .container-quotes {
+    padding: 20px;
     flex-direction: row; /* Align sections side by side */
     justify-content: space-between;
   }
