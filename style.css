@@ -12,6 +12,12 @@ body {
   border-bottom: 1px solid #e7e7e7;
 }
 
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222f4e;
+}
+
 .nav-link {
   color: #6c757d;
 }
@@ -20,42 +26,148 @@ body {
   border: none;
 }
 
-/* Hero Section */
-.hero {
-  padding: 100px 0;
+.navbar-toggler-icon {
+  color: #222f4e;
+}
+
+/* Large screen flexbox: separate logo and social icons */
+.navbar-collapse {
+  justify-content: space-between;
+}
+
+/* Social icons styling */
+.navbar-nav i {
+  font-size: 1.5rem;
+  color: #222f4e;
+}
+
+.btn-primary {
+  background-color: #222f4e;
+  border: none;
+}
+/* Services Section */
+.service-box {
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.service-box h4 {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.service-box p {
+  font-size: 0.9rem;
+}
+
+.service-box:hover {
+  transform: scale(1.05);
+}
+
+/* Adding slight background color overlay for better text visibility */
+.service-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.service-box * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Flexbox for small screens: align icons row-wise with spacing */
+@media (max-width: 991px) {
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 5px 0;
+  }
+
+  .navbar-nav i {
+    font-size: 1.8rem;
+    color: #0d6efd;
+  }
+}
+
+/* About Me Section */
+.about-me {
   background-color: #f1f3f5;
 }
 
-.hero h1 {
+.about-me h2 {
   font-weight: 700;
   color: #222f4e;
 }
 
-.hero .btn {
-  background-color: #222f4e;
-  color: #fff;
+.about-me p {
+  font-size: 1rem;
+  color: #6c757d;
 }
 
-.hero .btn:hover {
-  background-color: #1b253a;
+.about-me img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 
-/* Services Section */
-.services {
-  background-color: #fff;
+@media (max-width: 768px) {
+  .about-me .row {
+    text-align: center;
+  }
+
+  .about-me img {
+    margin-bottom: 20px;
+  }
 }
 
-.service-box i {
-  color: #3882f6;
+/* Hero Section */
+.hero {
+  padding: 100px 0;
+  background: url("https://cdn.pixabay.com/photo/2017/01/29/13/20/laptop-2017978_1280.png") no-repeat center center/cover;
 }
 
-.service-box h4 {
-  margin-top: 10px;
-  font-weight: 700;
+@media (max-width: 768px) {
+  .hero {
+    padding: 50px 0;
+  }
+
+  .hero .btn {
+    width: 100%;
+  }
 }
 
 /* Footer */
 footer {
   background-color: #222f4e;
   color: #fff;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.text-center {
+  text-align: center;
 }
