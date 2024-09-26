@@ -171,15 +171,20 @@
   </section>
 
   <!-- Quotes Section -->
-  <section class="quotes py-4 text-center" id="quotes-section">
-    <div class="container">
-      <h2>Daily Inspiration</h2>
-      <blockquote id="quote" class="blockquote">
-        <p id="quote-text"></p>
-        <footer class="blockquote-footer" id="quote-author"></footer>
-      </blockquote>
-    </div>
-  </section>
+   <div class="container-quotes">
+  <section id="quote-section">
+  <!-- Quote Section -->
+  <p id="quote-text"></p>
+  <p id="quote-author"></p>
+</section>
+
+<section id="bible-verse-section">
+  <!-- Bible Verse Section -->
+  <p id="verse-text"></p>
+  <p id="verse-reference"></p>
+</section>
+</div>
+
 
   <!-- Footer -->
   <footer class="py-4">
@@ -193,79 +198,83 @@
 
   <!-- JavaScript for Quotes -->
   <script>
-    const quotes = [
-      {
-        text: "The only way to do great work is to love what you do.",
-        author: "Steve Jobs",
-      },
-      {
-        text: "Believe you can and you're halfway there.",
-        author: "Theodore Roosevelt",
-      },
-      {
-        text: "Act as if what you do makes a difference. It does.",
-        author: "William James",
-      },
-      {
-        text: "Success is not how high you have climbed, but how you make a positive difference to the world.",
-        author: "Roy T. Bennett",
-      },
-      {
-        text: "Keep your face always toward the sunshine—and shadows will fall behind you.",
-        author: "Walt Whitman",
-      },
-    ];
+      const quotes = [
+    {
+      text: "The only way to do great work is to love what you do.",
+      author: "Steve Jobs",
+    },
+    {
+      text: "Believe you can and you're halfway there.",
+      author: "Theodore Roosevelt",
+    },
+    {
+      text: "Act as if what you do makes a difference. It does.",
+      author: "William James",
+    },
+    {
+      text: "Success is not how high you have climbed, but how you make a positive difference to the world.",
+      author: "Roy T. Bennett",
+    },
+    {
+      text: "Keep your face always toward the sunshine—and shadows will fall behind you.",
+      author: "Walt Whitman",
+    },
+  ];
 
-    const bibleVerses = [
-      {
-        text: "I can do all things through Christ who strengthens me.",
-        reference: "Philippians 4:13",
-      },
-      {
-        text: "For I know the plans I have for you, declares the Lord.",
-        reference: "Jeremiah 29:11",
-      },
-      {
-        text: "The Lord is my shepherd; I shall not want.",
-        reference: "Psalm 23:1",
-      },
-      {
-        text: "Trust in the Lord with all your heart.",
-        reference: "Proverbs 3:5",
-      },
-      {
-        text: "And we know that in all things God works for the good of those who love him.",
-        reference: "Romans 8:28",
-      },
-    ];
+  const bibleVerses = [
+    {
+      text: "I can do all things through Christ who strengthens me.",
+      reference: "Philippians 4:13",
+    },
+    {
+      text: "For I know the plans I have for you, declares the Lord.",
+      reference: "Jeremiah 29:11",
+    },
+    {
+      text: "The Lord is my shepherd; I shall not want.",
+      reference: "Psalm 23:1",
+    },
+    {
+      text: "Trust in the Lord with all your heart.",
+      reference: "Proverbs 3:5",
+    },
+    {
+      text: "And we know that in all things God works for the good of those who love him.",
+      reference: "Romans 8:28",
+    },
+  ];
 
-    function getDay() {
-      const today = new Date();
-      return today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  function getDay() {
+    const today = new Date();
+    return today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  }
+
+  function displayQuote() {
+    const day = getDay();
+    // Use the day to select a quote and a bible verse (Monday to Friday)
+    if (day >= 1 && day <= 5) { // Monday to Friday
+      const quote = quotes[day - 1];
+      const verse = bibleVerses[day - 1];
+
+      // Display Quote and Author
+      document.getElementById('quote-text').innerText = quote.text;
+      document.getElementById('quote-author').innerText = `– ${quote.author}`;
+
+      // Display Bible Verse and Reference
+      document.getElementById('verse-text').innerText = verse.text;
+      document.getElementById('verse-reference').innerText = `– ${verse.reference}`;
+    } else {
+      // For weekends (Saturday & Sunday), show a message
+      document.getElementById('quote-text').innerText = "Enjoy your weekend! Come back for inspiration on Monday!";
+      document.getElementById('quote-author').innerText = "";
+      document.getElementById('verse-text').innerText = "";
+      document.getElementById('verse-reference').innerText = "";
     }
+  }
 
-    function displayQuote() {
-      const day = getDay();
-      // Use the day to select a quote and a bible verse (Monday to Friday)
-      if (day >= 1 && day <= 5) { // Monday to Friday
-        const quote = quotes[day - 1];
-        const verse = bibleVerses[day - 1];
+  // Call the function to display the quote when the page loads
+  window.onload = displayQuote;
 
-        document.getElementById('quote-text').innerText = quote.text;
-        document.getElementById('quote-author').innerText = quote.author;
-        
-        // Display Bible Verse
-        document.getElementById('quote-text').innerText += `\n\n${verse.text}`;
-        document.getElementById('quote-author').innerText += ` (${verse.reference})`;
-      } else {
-        // For weekends (Saturday & Sunday), show a message
-        document.getElementById('quote-text').innerText = "Enjoy your weekend! Come back for inspiration on Monday!";
-        document.getElementById('quote-author').innerText = "";
-      }
-    }
-
-    // Call the function to display the quote when the page loads
-    window.onload = displayQuote;
   </script>
 </body>
 </html>

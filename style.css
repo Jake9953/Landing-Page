@@ -76,46 +76,82 @@ body {
   transform: scale(1.05);
 }
 
-/* Quotes Section Styles */
-.quotes {
-  background-color: #f8f9fa; /* Light background color for contrast */
-  padding: 30px 20px; /* Spacing around the section */
-  border-top: 2px solid #007bff; /* Top border to distinguish the section */
-  text-align: center; /* Center text */
+/* Styling for the Container that holds both sections */
+.container-quotes {
+  display: flex;
+  flex-direction: row; /* Stack the sections vertically by default */
+  align-items: center;
+  gap: 12px; /* Add space between the sections */
+  width: 100%;
+  max-width: 1200px; /* Limit the container's width */
+  margin: 0 auto; /* Center the container */
 }
 
-blockquote {
-  font-style: italic; /* Italics for the quote text */
-  color: #333; /* Dark text color */
-  max-width: 600px; /* Max width for blockquote */
-  margin: 0 auto; /* Center blockquote */
+/* Styling for the Quote Section */
+#quote-section {
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Cool gradient */
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  max-width: 600px;
+  width: 100%;
 }
 
-blockquote p {
-  font-size: 1.5rem; /* Font size for the quote */
-  margin: 0; /* Remove default margin */
+/* Styling for the Bible Verse Section */
+#bible-verse-section {
+  background: linear-gradient(135deg, #2ce68c, #1678da); /* Soft, vibrant gradient */
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  max-width: 600px;
+  width: 100%;
 }
 
-blockquote footer {
-  font-size: 1rem; /* Font size for the author */
-  color: #007bff; /* Blue color for the author */
-  margin-top: 10px; /* Spacing above the author name */
+#quote-text, #verse-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-style: italic;
 }
 
-/* Bible Section Styles */
-.bible {
-  background-color: #e9ecef; /* Slightly darker background for distinction */
-  padding: 30px 20px; /* Spacing around the section */
-  border-radius: 8px; /* Rounded corners */
-  text-align: center; /* Center text */
-  margin-top: 20px; /* Spacing above the Bible section */
+#quote-author, #verse-reference {
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-align: right;
+  opacity: 0.8;
 }
 
-.bible p {
-  font-size: 1.2rem; /* Font size for the Bible verse */
-  margin: 0; /* Remove default margin */
-  color: #555; /* Dark gray for Bible verse text */
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .container-quotes {
+    padding: 20px;
+  }
+
+  #quote-text, #verse-text {
+    font-size: 1rem;
+  }
+
+  #quote-author, #verse-reference {
+    font-size: 0.8rem;
+  }
 }
+
+/* For larger screens */
+@media (min-width: 769px) {
+  .container-quotes {
+    flex-direction: row; /* Align sections side by side */
+    justify-content: space-between;
+  }
+
+  #quote-section, #bible-verse-section {
+    max-width: 48%; /* Make both sections take up equal space */
+  }
+}
+
 
 /* Hero section with overlay */
 .hero {
