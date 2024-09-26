@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f8f9fa;
+  color: #222; /* Darker text color for better readability */
 }
 
 /* Navbar */
@@ -75,132 +76,50 @@ body {
   transform: scale(1.05);
 }
 
-/* Responsive services section */
-@media (max-width: 768px) {
-  .service-box {
-    margin-bottom: 15px;
-  }
+/* Quotes Section Styles */
+.quotes {
+  background-color: #f8f9fa; /* Light background color for contrast */
+  padding: 30px 20px; /* Spacing around the section */
+  border-top: 2px solid #007bff; /* Top border to distinguish the section */
+  text-align: center; /* Center text */
 }
 
-/* Hero section */
+blockquote {
+  font-style: italic; /* Italics for the quote text */
+  color: #333; /* Dark text color */
+  max-width: 600px; /* Max width for blockquote */
+  margin: 0 auto; /* Center blockquote */
+}
+
+blockquote p {
+  font-size: 1.5rem; /* Font size for the quote */
+  margin: 0; /* Remove default margin */
+}
+
+blockquote footer {
+  font-size: 1rem; /* Font size for the author */
+  color: #007bff; /* Blue color for the author */
+  margin-top: 10px; /* Spacing above the author name */
+}
+
+/* Bible Section Styles */
+.bible {
+  background-color: #e9ecef; /* Slightly darker background for distinction */
+  padding: 30px 20px; /* Spacing around the section */
+  border-radius: 8px; /* Rounded corners */
+  text-align: center; /* Center text */
+  margin-top: 20px; /* Spacing above the Bible section */
+}
+
+.bible p {
+  font-size: 1.2rem; /* Font size for the Bible verse */
+  margin: 0; /* Remove default margin */
+  color: #555; /* Dark gray for Bible verse text */
+}
+
+/* Hero section with overlay */
 .hero {
-  background-image: url("./images/hero-large.jpg");
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-  color: white;
-}
-
-.hero h1 {
-  font-size: 3rem;
-}
-
-.hero p {
-  font-size: 1.25rem;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    background-image: url("./images/hero-small.jpg");
-    padding: 100px 0;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-}
-
-/* Footer */
-footer {
-  background-color: #222f4e;
-  color: #fff;
-}
-/* Base styles */
-body {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f9fa;
-}
-
-/* Navbar */
-.navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #e7e7e7;
-}
-
-.navbar-brand {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #222f4e;
-}
-
-.nav-link {
-  color: #6c757d;
-}
-
-.navbar-toggler {
-  border: none;
-}
-
-.navbar-toggler-icon {
-  color: #222f4e;
-}
-
-/* Large screen flexbox: separate logo and social icons */
-.navbar-collapse {
-  justify-content: space-between;
-}
-
-/* Social icons styling */
-.navbar-nav i {
-  font-size: 1.5rem;
-  color: #222f4e;
-}
-
-.btn-primary {
-  background-color: #222f4e;
-  border: none;
-}
-
-/* Services Section */
-.service-box {
-  background-size: cover;
-  background-position: center;
-  padding: 30px;
-  color: #fff;
-  text-align: center;
-  border-radius: 8px;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease;
-}
-
-.service-box h4 {
-  font-weight: bold;
-  margin-top: 15px;
-}
-
-.service-box p {
-  font-size: 0.9rem;
-}
-
-.service-box:hover {
-  transform: scale(1.05);
-}
-
-/* Responsive services section */
-@media (max-width: 768px) {
-  .service-box {
-    margin-bottom: 15px;
-  }
-}
-
-/* Hero section */
-.hero {
+  position: relative; /* Position relative for overlay */
   background-image: url("https://cdn.pixabay.com/photo/2017/01/29/13/20/laptop-2017978_1280.png");
   background-size: cover;
   background-position: center;
@@ -208,27 +127,52 @@ body {
   color: white;
 }
 
-.hero h1 {
-  font-size: 3rem;
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(34, 47, 78, 0.5); /* Semi-transparent overlay */
+  z-index: 1; /* Place overlay above the background */
 }
 
+.hero h1,
 .hero p {
-  font-size: 1.25rem;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    background-image: url("https://cdn.pixabay.com/photo/2017/08/25/13/36/code-geek-2680204_1280.png");
-    padding: 100px 0;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
+  position: relative; /* Position text above the overlay */
+  z-index: 2; /* Bring text above the overlay */
 }
 
 /* Footer */
 footer {
   background-color: #222f4e;
   color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+    background-image: url("https://cdn.pixabay.com/photo/2017/08/25/13/36/code-geek-2680204_1280.png"); /* Small screen hero image */
+    padding: 100px 0;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .quotes,
+  .bible {
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+  }
+
+  blockquote p,
+  .bible p {
+    font-size: 1.2rem; /* Slightly smaller font size on mobile */
+  }
+
+  /* Responsive services section */
+  .service-box {
+    margin-bottom: 15px;
+  }
 }
