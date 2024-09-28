@@ -49,6 +49,7 @@ body {
 
 /* Services Section */
 .service-box {
+  position: relative; /* Needed for overlay positioning */
   background-size: cover;
   background-position: center;
   padding: 30px;
@@ -60,7 +61,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  overflow: hidden; /* Hide overflow to ensure overlay fits perfectly */
 }
 
 .service-box h4 {
@@ -72,9 +74,32 @@ body {
   font-size: 0.9rem;
 }
 
-.service-box:hover {
-  transform: scale(1.05);
+/* Fade effect for background images */
+.service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Darken the image to improve text readability */
+  z-index: 1; /* Ensure the overlay is above the image */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
+
+.service-box:hover .service-overlay {
+  background-color: rgba(0, 0, 0, 0.8); /* Darken further on hover */
+}
+
+.service-box i,
+.service-box h4,
+.service-box p {
+  z-index: 2; /* Bring text and icons above the overlay */
+}
+
+.service-box:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
 
 /* Styling for the Container that holds both sections */
 .container-quotes {
