@@ -1,2 +1,2 @@
 # Landing-Page
- This is the second Odin Project
+This is the start of my portfolio. See you there.
