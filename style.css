@@ -329,3 +329,44 @@ footer {
 
 
 
+/* Projects Section */
+.projects {
+    padding: 50px 0; /* Padding for the section */
+    background-color: #f8f9fa; /* Light background color */
+}
+
+.projects h3 {
+    text-align: center;
+    margin-bottom: 30px; /* Space below the heading */
+}
+
+.card {
+    border: 1px solid #ddd; /* Light border for cards */
+    border-radius: 8px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Transition for hover effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge card on hover */
+}
+
+.card-img-top {
+    height: 200px; /* Set a fixed height for images */
+    object-fit: cover; /* Ensure images cover the area without distortion */
+}
+
+.card-body {
+    text-align: center; /* Center align text in card body */
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between; /* Space between buttons in footer */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 150px; /* Adjust image height for mobile */
+    }
+}
