@@ -75,6 +75,27 @@ body {
   font-size: 0.9rem;
 }
 
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222f4e; /* Dark blue color */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: #222f4e; /* Same dark blue color */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
 .service-box:hover {
   transform: scale(1.05);
 }
