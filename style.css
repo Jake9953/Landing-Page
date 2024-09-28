@@ -49,20 +49,21 @@ body {
 
 /* Services Section */
 .service-box {
-  position: relative; /* Needed for overlay positioning */
+  position: relative;
   background-size: cover;
   background-position: center;
   padding: 30px;
   color: #fff;
   text-align: center;
   border-radius: 8px;
-  min-height: 300px;
+  min-height: 300px; /* Minimum height for smaller screens */
+  height: 350px; /* Fixed height for consistent card size */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  overflow: hidden; /* Hide overflow to ensure overlay fits perfectly */
+  transition: transform 0.3s ease;
+  overflow: hidden;
 }
 
 .service-box h4 {
@@ -74,30 +75,47 @@ body {
   font-size: 0.9rem;
 }
 
-/* Fade effect for background images */
+.service-box:hover {
+  transform: scale(1.05);
+}
+
 .service-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Darken the image to improve text readability */
-  z-index: 1; /* Ensure the overlay is above the image */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(34, 47, 78, 0.5)); /* Black with a hint of dark blue */
+  border-radius: 8px;
+  z-index: 1;
+  transition: background 0.3s ease;
 }
 
 .service-box:hover .service-overlay {
-  background-color: rgba(0, 0, 0, 0.8); /* Darken further on hover */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(34, 47, 78, 0.7)); /* Darker on hover */
 }
 
 .service-box i,
 .service-box h4,
 .service-box p {
-  z-index: 2; /* Bring text and icons above the overlay */
+  position: relative;
+  z-index: 2;
 }
 
-.service-box:hover {
-  transform: scale(1.05); /* Zoom effect on hover */
+/* Adjusting column heights to be equal */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-3 {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.service-box {
+  flex-grow: 1;
 }
 
 
