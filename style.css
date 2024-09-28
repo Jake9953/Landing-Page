@@ -47,6 +47,10 @@ body {
   border: none;
 }
 
+
+
+
+
 /* Services Section */
 .service-box {
   position: relative;
@@ -118,7 +122,6 @@ body {
   flex-grow: 1;
 }
 
-
 /* Styling for the Container that holds both sections */
 .container-quotes {
   display: flex;
@@ -130,7 +133,7 @@ body {
   margin: 0 auto; /* Center the container */
 }
 
-#text{
+#text {
   text-align: center;
 }
 
@@ -158,14 +161,16 @@ body {
   width: 100%;
 }
 
-#quote-text, #verse-text {
+#quote-text,
+#verse-text {
   font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 10px;
   font-style: italic;
 }
 
-#quote-author, #verse-reference {
+#quote-author,
+#verse-reference {
   font-size: 1.1rem;
   font-weight: normal;
   text-align: right;
@@ -178,11 +183,13 @@ body {
     padding: 20px;
   }
 
-  #quote-text, #verse-text {
+  #quote-text,
+  #verse-text {
     font-size: 1rem;
   }
 
-  #quote-author, #verse-reference {
+  #quote-author,
+  #verse-reference {
     font-size: 0.8rem;
   }
 }
@@ -195,20 +202,22 @@ body {
     justify-content: space-between;
   }
 
-  #quote-section, #bible-verse-section {
+  #quote-section,
+  #bible-verse-section {
     max-width: 48%; /* Make both sections take up equal space */
   }
 }
 
-
 /* Hero section with overlay */
 .hero {
   position: relative; /* Position relative for overlay */
-  background-image: url("https://cdn.pixabay.com/photo/2017/01/29/13/20/laptop-2017978_1280.png");
+  background-image: url("https://cdn.pixabay.com/photo/2017/01/29/13/20/laptop-2017978_1280.png"); /* Your original background image */
   background-size: cover;
   background-position: center;
   padding: 150px 0;
   color: white;
+  opacity: 0; /* Initial opacity for fade-in effect */
+  animation: fadeIn 2s ease-in forwards; /* Fade-in animation */
 }
 
 .hero::after {
@@ -226,6 +235,73 @@ body {
 .hero p {
   position: relative; /* Position text above the overlay */
   z-index: 2; /* Bring text above the overlay */
+  animation: slideInFromLeft 1.5s ease forwards; /* Slide-in animation for text */
+}
+
+.hero p {
+  animation: slideInFromRight 1.5s ease 0.3s forwards; /* Delayed slide-in for paragraph */
+}
+
+.btn-primary {
+  z-index: 2; /* Ensures button is above overlay */
+  background-color: #222f4e;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: pulse 1.5s infinite; /* Pulse animation to make it attention-grabbing */
+}
+
+.btn-primary:hover {
+  transform: scale(1.1); /* Zoom in slightly when hovered */
+  background-color: #0056b3; /* Darker color on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Footer */
@@ -245,18 +321,52 @@ footer {
     font-size: 2.5rem;
   }
 
-  .quotes,
-  .bible {
-    padding: 20px 10px; /* Adjust padding for smaller screens */
+  .btn-primary {
+    font-size: 1rem;
+    padding: 8px 16px;
   }
+}
 
-  blockquote p,
-  .bible p {
-    font-size: 1.2rem; /* Slightly smaller font size on mobile */
-  }
 
-  /* Responsive services section */
-  .service-box {
-    margin-bottom: 15px;
-  }
+
+/* Projects Section */
+.projects {
+    padding: 50px 0; /* Padding for the section */
+    background-color: #f8f9fa; /* Light background color */
+}
+
+.projects h3 {
+    text-align: center;
+    margin-bottom: 30px; /* Space below the heading */
+}
+
+.card {
+    border: 1px solid #ddd; /* Light border for cards */
+    border-radius: 8px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Transition for hover effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge card on hover */
+}
+
+.card-img-top {
+    height: 200px; /* Set a fixed height for images */
+    object-fit: cover; /* Ensure images cover the area without distortion */
+}
+
+.card-body {
+    text-align: center; /* Center align text in card body */
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between; /* Space between buttons in footer */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 150px; /* Adjust image height for mobile */
+    }
 }
