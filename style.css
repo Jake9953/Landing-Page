@@ -47,21 +47,17 @@ body {
   border: none;
 }
 
-
-
-
-
 /* Services Section */
 .service-box {
   position: relative;
-  background-size: cover;
+  background-size: contain; /* Changed from 'cover' to 'contain' */
   background-position: center;
   padding: 30px;
   color: #fff;
   text-align: center;
   border-radius: 8px;
-  min-height: 300px; /* Minimum height for smaller screens */
-  height: 350px; /* Fixed height for consistent card size */
+  min-height: 300px;
+  height: auto; /* Allow the height to adjust dynamically */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -327,46 +323,58 @@ footer {
   }
 }
 
-
-
 /* Projects Section */
 .projects {
-    padding: 50px 0; /* Padding for the section */
-    background-color: #f8f9fa; /* Light background color */
+  padding: 50px 0; /* Padding for the section */
+  background-color: #f8f9fa; /* Light background color */
 }
 
-.projects h3 {
-    text-align: center;
-    margin-bottom: 30px; /* Space below the heading */
+.projects .card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-.card {
-    border: 1px solid #ddd; /* Light border for cards */
-    border-radius: 8px; /* Rounded corners */
-    transition: transform 0.3s ease; /* Transition for hover effect */
+.projects .card:hover {
+  transform: scale(1.05); /* Slightly enlarge card on hover */
 }
 
-.card:hover {
-    transform: scale(1.05); /* Slightly enlarge card on hover */
-}
-
+/* Card images */
 .card-img-top {
-    height: 200px; /* Set a fixed height for images */
-    object-fit: cover; /* Ensure images cover the area without distortion */
+  width: 100%;
+  height: auto; /* Allow height to adjust dynamically */
+  object-fit: contain; /* Prevent cropping */
 }
 
 .card-body {
-    text-align: center; /* Center align text in card body */
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #6c757d;
 }
 
 .card-footer {
-    display: flex;
-    justify-content: space-between; /* Space between buttons in footer */
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  text-align: center;
 }
 
-/* Responsive Styles */
+/* Responsive styles */
 @media (max-width: 768px) {
-    .card-img-top {
-        height: 150px; /* Adjust image height for mobile */
-    }
+  .projects .card-img-top {
+    height: auto;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Prevent cropping */
 }
