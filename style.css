@@ -1,13 +1,33 @@
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --background-color: #ecf0f1;
-    --text-color: #34495e;
-    --white: #ffffff;
-    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+/* Button styling */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
+.btn-outline-dark {
+  color: #333;
+  border: 1px solid #333;
+}
+
+.btn-outline-dark:hover {
+  background: #333;
+  color: #fff;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}/* Base styles */
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
@@ -16,39 +36,69 @@ body {
 }
 
 .navbar {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
+  background-color: #fff;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 0.5rem 1rem; /* Added padding for better spacing */
 }
 
 .navbar-brand {
-    font-weight: 700;
-    color: var(--primary-color) !important;
-    font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222f4e;
+  text-decoration: none; /* Ensure no underline */
+}
+
+.navbar-brand:hover {
+  color: #1a1a2e; /* Darker color on hover */
 }
 
 .nav-link {
-    color: var(--text-color) !important;
-    font-weight: 500;
-    transition: var(--transition);
-    position: relative;
+  color: #6c757d;
+  text-decoration: none; /* Ensure no underline */
+  padding: 0.5rem 1rem; /* Added padding for better spacing */
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: var(--secondary-color);
-    transition: var(--transition);
+.nav-link:hover {
+  color: #343a40; /* Darker color on hover */
 }
 
-.nav-link:hover::after {
-    width: 100%;
-    left: 0;
+.navbar-toggler {
+  border: none;
+  background-color: #e7e7e7; /* Added background color for better visibility */
+  padding: 0.25rem 0.5rem; /* Added padding for better spacing */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack navbar items vertically on small screens */
+  }
+
+  .nav-link {
+    padding: 0.5rem 0; /* Adjust padding for vertical stacking */
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack navbar items vertically on small screens */
+  }
+
+  .nav-link {
+    padding: 0.5rem 0; /* Adjust padding for vertical stacking */
+  }
+}
+
+/* Large screen flexbox: separate logo and social icons */
+.navbar-collapse {
+  justify-content: space-between;
+}
+
+/* Social icons styling */
+.navbar-nav i {
+  font-size: 1.5rem;
+  color: #222f4e;
 }
 
 .hero {
