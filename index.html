@@ -1,362 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QVT2QGC8LF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jacob Wambua - Web Developer &amp; IT Consultant</title>
+    <meta
+      name="description"
+      content="Jacob Wambua - Expert in web development, IT consulting, logo design, business websites, and company profiles."
+    />
+    <meta
+      name="keywords"
+      content="web development, IT consultancy, logo design, business websites, company profiles, Jacob Wambua"
+    />
+    <meta name="author" content="Jacob Wambua" />
+    <meta name="google-adsense-account" content="ca-pub-3245408355190526" />
 
-  gtag('config', 'G-QVT2QGC8LF');
-</script>
-<meta name="google-adsense-account" content="ca-pub-3245408355190526">
-<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Jacob Wambua - Web development, IT consulting, logo design, business websites, and company profiles."
-  />
-  <meta
-    name="keywords"
-    content="web development, IT consultancy, logo design, business websites, company profiles"
-  />
-  <meta name="author" content="Jacob Wambua" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    rel="stylesheet"
-  />
-  <!-- Bootstrap Icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-  <script async src="https://fundingchoicesmessages.google.com/i/pub-3245408355190526?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-QVT2QGC8LF"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-QVT2QGC8LF");
+    </script>
 
-  <link rel="stylesheet" href="style.css"> 
-  <title>Jacob Wambua Portfolio</title>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Jacob Wambua</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="collapse navbar-collapse justify-content-between"
-        id="navbarNav"
-      >
-        <!-- Left Side - Logo -->
-        <ul class="navbar-nav me-auto">
-          <!-- Empty for alignment -->
-        </ul>
+    <!-- Google Funding Choices -->
+    <script
+      async
+      src="https://fundingchoicesmessages.google.com/i/pub-3245408355190526?ers=1"
+    ></script>
+    <script>
+      (function () {
+        function signalGooglefcPresent() {
+          if (!window.frames["googlefcPresent"]) {
+            if (document.body) {
+              const iframe = document.createElement("iframe");
+              iframe.style =
+                "width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;";
+              iframe.style.display = "none";
+              iframe.name = "googlefcPresent";
+              document.body.appendChild(iframe);
+            } else {
+              setTimeout(signalGooglefcPresent, 0);
+            }
+          }
+        }
+        signalGooglefcPresent();
+      })();
+    </script>
 
-        <!-- Right Side - Social Media Links -->
-        <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/Wambuajacobs_O"
-              ><i class="fab fa-twitter"></i
-            ></a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="https://www.linkedin.com/in/jacob-wambua-17a107153/"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/Jake9953"
-              ><i class="fab fa-github"></i
-            ></a>
-          </li>
-          <!-- Contact Me Button -->
-          <li class="nav-item ms-3">
-            <a
-              class="btn btn-primary nav-link text-white"
-              href="https://wa.me/254111309187"
-              target="_blank">Contact Me</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- About Me Section -->
-  <section class="about-me py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <h2>About Me</h2>
-          <p>
-            I am Jacob Wambua, a passionate web developer with 2 years of
-            experience in the field. I'm aspiring to become a full-stack
-            developer but also have skills in IT consulting, logo design, and
-            business websites.
-          </p>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">JW</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="col-md-6 text-center">
-          <img
-            src="https://cdn.pixabay.com/photo/2022/12/04/06/32/programmer-7633812_1280.jpg"
-            alt="Jacob Wambua"
-            class="img-fluid rounded-circle"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
+      </nav>
+    </header>
 
-  <!-- Main Section (Hero) -->
-<section class="hero">
-  <div class="container text-center">
-    <h1 class="display-4">Web Developer &amp; IT Consultant</h1>
-    <p class="lead">Crafting modern websites, logos, and digital solutions.</p>
-    <a href="https://wa.me/254111309187" class="btn btn-primary btn-lg d-block d-sm-none" style="position: relative; z-index: 2;">Get in Touch</a>
-  </div>
-</section>
-
-<!-- Services Section -->
-<section class="services py-5">
-  <div class="container text-center">
-    <h2 class="mb-4">Services</h2>
-    <div class="row">
-      <div class="col-md-3">
-        <div class="service-box" style="background-image: url('https://cdn.pixabay.com/photo/2019/10/09/07/28/development-4536630_1280.png');">
-          <div class="service-overlay"></div> <!-- Adding the overlay -->
-          <i class="fas fa-code fa-3x mb-3"></i>
-          <h4>Web Development</h4>
-          <p>We specialize in building fast, modern, and responsive websites that ensure an excellent user experience, customized to your business needs.</p>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="service-box" style="background-image: url('https://cdn.pixabay.com/photo/2015/09/09/17/10/desk-931928_1280.jpg');">
-          <div class="service-overlay"></div> <!-- Adding the overlay -->
-          <i class="fas fa-pencil-alt fa-3x mb-3"></i>
-          <h4>Logo Design</h4>
-          <p>We do logo designs by crafting visually appealing and memorable logos that capture the essence of your brand identity and stand out in the market.</p>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="service-box" style="background-image: url('https://cdn.pixabay.com/photo/2021/03/29/12/16/stairs-6133971_1280.jpg');">
-          <div class="service-overlay"></div> <!-- Adding the overlay -->
-          <i class="fas fa-building fa-3x mb-3"></i>
-          <h4>Company Profiles</h4>
-          <p>We create professional and visually appealing company profiles that highlight your business’s key strengths, mission, and vision.</p>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="service-box" style="background-image: url('https://cdn.pixabay.com/photo/2014/06/24/10/10/monitor-376211_1280.jpg');">
-          <div class="service-overlay"></div> <!-- Adding the overlay -->
-          <i class="fas fa-briefcase fa-3x mb-3"></i>
-          <h4>IT Consulting</h4>
-          <p>Our IT consulting services focus on improving your business's efficiency by leveraging the latest technology solutions to drive growth.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="projects">
-    <!-- Websites Section -->
-    <div class="mb-5">
-        <h2 class="mb-4">Websites</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="./images/10.jpg" class="card-img-top" alt="Website Project Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Signal Cyber Cafe</h5>
-                        <p class="card-text">This website provides cyber services such as internet browsing, printing, and gaming.</p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <a href="https://github.com/Jake9953/SIGNAL-CYBER-CAFE" class="btn btn-outline-dark" target="_blank">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
-                        <a href="https://signallcybercafe.netlify.app/" class="btn btn-primary" target="_blank">
-                            Live Website
-                        </a>
-                    </div>
-                </div>
+    <main>
+      <section id="hero" class="hero">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">
+                Jacob Wambua
+              </h1>
+              <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+                Web Developer &amp; IT Consultant
+              </p>
+              <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                Crafting modern websites, logos, and digital solutions.
+              </p>
+              <a
+                href="https://wa.me/254111309187" target="_blank"
+                class="btn btn-primary btn-lg"
+                data-aos="fade-up"
+                data-aos-delay="300"
+                >Get in Touch</a
+              >
             </div>
+            <div class="col-lg-6 d-none d-lg-block">
+              <div class="hero-image" data-aos="zoom-in">
+                <img
+                  src="https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg"
+                  alt="Hero Image"
+                  class="img-fluid rounded-circle"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <!-- Company Profiles Section -->
-    <div>
-        <h3>Company Profiles</h3>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="./images/prof1.jpg" class="card-img-top" alt="Company Profile 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Luclin Enterprise Limited</h5>
-                        <p class="card-text">Specializing in construction, road works, and engineering consultancy, particularly for building materials.</p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <a href="./company profiles/profile1.pdf" class="btn btn-outline-info" target="_blank" rel="noopener noreferrer">
-                            <i class="bi bi-folder"></i> View PDF 1
-                        </a>
-                    </div>
-                </div>
+      <section id="about" class="about py-5">
+        <div class="container">
+          <h2 class="text-center mb-5" data-aos="fade-up">About Me</h2>
+          <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+              <img
+                src="https://cdn.pixabay.com/photo/2024/05/20/16/24/ai-generated-8775742_960_720.png"
+                alt="Jacob Wambua"
+                class="img-fluid rounded-circle profile-img"
+              />
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="./images/prof2.jpg" class="card-img-top" alt="Company Profile 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Majoph Enterprises Limited</h5>
-                        <p class="card-text">Experts in plumbing and water works, providing high-quality services in the construction sector.</p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <a href="./company profiles/profile2.pdf" class="btn btn-outline-info" target="_blank" rel="noopener noreferrer">
-                            <i class="bi bi-folder"></i> View PDF 2
-                        </a>
-                    </div>
+            <div class="col-md-6" data-aos="fade-left">
+              <p>
+                I am Jacob Wambua, a passionate web developer with 2 years of
+                experience in the field. I'm aspiring to become a full-stack
+                developer but also have skills in IT consulting, logo design,
+                and business websites.
+              </p>
+              <p>
+                My goal is to create beautiful, functional, and user-friendly
+                digital experiences that help businesses thrive in the online
+                world.
+              </p>
+              <div class="mt-4">
+                <h4>Skills:</h4>
+                <div class="skill-tags">
+                  <span class="skill-tag">HTML5</span>
+                  <span class="skill-tag">CSS3</span>
+                  <span class="skill-tag">JavaScript</span>
+                  <span class="skill-tag">React</span>
+                  <span class="skill-tag">Node.js</span>
+                  <span class="skill-tag">UI/UX Design</span>
                 </div>
+              </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="./images/prof3.jpg" class="card-img-top" alt="Company Profile 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Jophin Enterprises</h5>
-                        <p class="card-text">Providing comprehensive services in construction and engineering consultancy.</p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <a href="./company profiles/profile3.pdf" class="btn btn-outline-info" target="_blank" rel="noopener noreferrer">
-                            <i class="bi bi-folder"></i> View PDF 3
-                        </a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
+      <section id="services" class="services py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-5" data-aos="fade-up">Services</h2>
+          <div class="row">
+            <div class="col-md-3 mb-4" data-aos="fade-up">
+              <div class="card service-card h-100">
+                <img
+                  src="https://cdn.pixabay.com/photo/2019/10/09/07/28/development-4536630_960_720.png"
+                  class="card-img-top"
+                  alt="Web Development"
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Web Development</h3>
+                  <p class="card-text">
+                    Custom-built websites tailored to your unique business
+                    needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="card service-card h-100">
+                <img
+                  src="https://cdn.pixabay.com/photo/2017/03/19/20/19/logo-2157465_1280.png"
+                  class="card-img-top"
+                  alt="Logo Design"
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Logo Design</h3>
+                  <p class="card-text">
+                    Eye-catching logos that represent your brand's identity.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="card service-card h-100">
+                <img
+                  src="https://cdn.pixabay.com/photo/2021/03/29/12/16/stairs-6133971_960_720.jpg"
+                  class="card-img-top"
+                  alt="Company Profiles"
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Company Profiles</h3>
+                  <p class="card-text">
+                    Professional documents showcasing your company's strengths.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="card service-card h-100">
+                <img
+                  src="https://cdn.pixabay.com/photo/2023/08/30/10/07/medicine-8222978_960_720.jpg"
+                  class="card-img-top"
+                  alt="IT Consulting"
+                />
+                <div class="card-body">
+                  <h3 class="card-title">IT Consulting</h3>
+                  <p class="card-text">
+                    Expert advice to optimize your technology infrastructure.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!-- Quotes Section -->
-   <h2 class="mb-4" id="text">Daily inspiration</h2>
-   <div class="container-quotes">
-  <section id="quote-section">
-  <!-- Quote Section -->
-  <p id="quote-text"></p>
-  <p id="quote-author"></p>
-</section>
+      <section id="projects" class="projects py-5">
+        <div class="container">
+          <h2 class="text-center mb-5" data-aos="fade-up">Projects</h2>
+          <ul
+            class="nav nav-tabs justify-content-center mb-4"
+            id="projectTabs"
+            role="tablist"
+          >
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="websites-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#websites"
+                type="button"
+                role="tab"
+                aria-controls="websites"
+                aria-selected="true"
+              >
+                Websites
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="profiles-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#profiles"
+                type="button"
+                role="tab"
+                aria-controls="profiles"
+                aria-selected="false"
+              >
+                Company Profiles
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="projectTabsContent">
+            <div
+              class="tab-pane fade show active"
+              id="websites"
+              role="tabpanel"
+              aria-labelledby="websites-tab"
+            >
+              <div class="row">
+                <div class="col-md-6 mb-4" data-aos="fade-up">
+                  <div class="card project-card">
+                    <img
+                      src="./images/10.jpg"
+                      class="card-img-top"
+                      alt="Signal Cyber Cafe"
+                    />
+                    <div class="card-body">
+                      <h3 class="card-title">Signal Cyber Cafe</h3>
+                      <p class="card-text">
+                        Website providing cyber services such as internet
+                        browsing, printing, and gaming.
+                      </p>
+                      <div class="mt-3">
+                        <a
+                          href="https://github.com/Jake9953/SIGNAL-CYBER-CAFE"
+                          class="btn btn-outline-primary me-2"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >GitHub</a
+                        >
+                        <a
+                          href="https://signallcybercafe.netlify.app/"
+                          class="btn btn-primary"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Live Site</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="profiles"
+              role="tabpanel"
+              aria-labelledby="profiles-tab"
+            >
+              <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                  <div class="card project-card">
+                    <img
+                      src="./images/prof1.jpg"
+                      class="card-img-top"
+                      alt="Luclin Enterprise Limited"
+                    />
+                    <div class="card-body">
+                      <h3 class="card-title">Luclin Enterprise Limited</h3>
+                      <p class="card-text">
+                        Company profile for a construction and engineering
+                        consultancy firm.
+                      </p>
+                      <a
+                        href="./company profiles/profile1.pdf"
+                        class="btn btn-primary mt-3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >View PDF</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-md-4 mb-4"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  <div class="card project-card">
+                    <img
+                      src="./images/prof2.jpg"
+                      class="card-img-top"
+                      alt="Majoph Enterprises Limited"
+                    />
+                    <div class="card-body">
+                      <h3 class="card-title">Majoph Enterprises Limited</h3>
+                      <p class="card-text">
+                        Company profile for experts in plumbing and water works.
+                      </p>
+                      <a
+                        href="./company profiles/profile2.pdf"
+                        class="btn btn-primary mt-3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >View PDF</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-md-4 mb-4"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  <div class="card project-card">
+                    <img
+                      src="./images/prof3.jpg"
+                      class="card-img-top"
+                      alt="Jophin Enterprises"
+                    />
+                    <div class="card-body">
+                      <h3 class="card-title">Jophin Enterprises</h3>
+                      <p class="card-text">
+                        Company profile for comprehensive construction and
+                        engineering services.
+                      </p>
+                      <a
+                        href="./company profiles/profile3.pdf"
+                        class="btn btn-primary mt-3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >View PDF</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<section id="bible-verse-section">
-  <!-- Bible Verse Section -->
-  <p id="verse-text"></p>
-  <p id="verse-reference"></p>
-</section>
-</div>
+      <section id="contact" class="contact py-5">
+        <div class="container">
+          <h2 class="text-center mb-5" data-aos="fade-up">Get in Touch</h2>
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <form id="contact-form" data-aos="fade-up">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    rows="5"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
+    <footer class="py-4 bg-primary text-white">
+      <div class="container text-center">
+        <p>&copy; 2024 Jacob Wambua. All Rights Reserved.</p>
+        <div class="mt-3 social-icons">
+          <a
+            href="https://twitter.com/Wambuajacobs_O"
+            class="social-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jacob-wambua-17a107153/"
+            class="social-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://github.com/Jake9953"
+            class="social-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="py-4">
-    <div class="container text-center">
-      <p>&copy; 2024 Jacob Wambua. All Rights Reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS and custom scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- JavaScript for Quotes -->
-  <script>
-      const quotes = [
-    {
-      text: "The only way to do great work is to love what you do.",
-      author: "Steve Jobs",
-    },
-    {
-      text: "Believe you can and you're halfway there.",
-      author: "Theodore Roosevelt",
-    },
-    {
-      text: "Act as if what you do makes a difference. It does.",
-      author: "William James",
-    },
-    {
-      text: "Success is not how high you have climbed, but how you make a positive difference to the world.",
-      author: "Roy T. Bennett",
-    },
-    {
-      text: "Keep your face always toward the sunshine—and shadows will fall behind you.",
-      author: "Walt Whitman",
-    },
-  ];
-
-  const bibleVerses = [
-    {
-      text: "I can do all things through Christ who strengthens me.",
-      reference: "Philippians 4:13",
-    },
-    {
-      text: "For I know the plans I have for you, declares the Lord.",
-      reference: "Jeremiah 29:11",
-    },
-    {
-      text: "The Lord is my shepherd; I shall not want.",
-      reference: "Psalm 23:1",
-    },
-    {
-      text: "Trust in the Lord with all your heart.",
-      reference: "Proverbs 3:5",
-    },
-    {
-      text: "And we know that in all things God works for the good of those who love him.",
-      reference: "Romans 8:28",
-    },
-  ];
-
-  function getDay() {
-    const today = new Date();
-    return today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-  }
-
-  function displayQuote() {
-    const day = getDay();
-    // Use the day to select a quote and a bible verse (Monday to Friday)
-    if (day >= 1 && day <= 5) { // Monday to Friday
-      const quote = quotes[day - 1];
-      const verse = bibleVerses[day - 1];
-
-      // Display Quote and Author
-      document.getElementById('quote-text').innerText = quote.text;
-      document.getElementById('quote-author').innerText = `– ${quote.author}`;
-
-      // Display Bible Verse and Reference
-      document.getElementById('verse-text').innerText = verse.text;
-      document.getElementById('verse-reference').innerText = `– ${verse.reference}`;
-    } else {
-      // For weekends (Saturday & Sunday), show a message
-      document.getElementById('quote-text').innerText = "Enjoy your weekend! Come back for inspiration on Monday!";
-      document.getElementById('quote-author').innerText = "";
-      document.getElementById('verse-text').innerText = "";
-      document.getElementById('verse-reference').innerText = "";
-    }
-  }
-
-  // Call the function to display the quote when the page loads
-  window.onload = displayQuote;
-
-  </script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script
+      src="https://kit.fontawesome.com/your-fontawesome-kit.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/e2f37350cf.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
-
-
-
-
