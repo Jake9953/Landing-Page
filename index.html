@@ -96,6 +96,9 @@
                 <a class="nav-link" href="#projects">Projects</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="#blog">Blog</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#contact">Contact</a>
               </li>
             </ul>
@@ -377,7 +380,7 @@
                         href="./company profiles/profile2.pdf"
                         class="btn btn-primary mt-3"
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener  noreferrer"
                         >View PDF</a
                       >
                     </div>
@@ -412,6 +415,31 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- New Blog Section -->
+      <section id="blog" class="blog py-5">
+        <div class="container">
+          <h2 class="text-center mb-5" data-aos="fade-up">Blog</h2>
+          <div class="blog-controls mb-4">
+            <div class="category-tabs">
+              <button class="category-tab active" data-category="all">All</button>
+              <button class="category-tab" data-category="ai-news">AI News</button>
+              <button class="category-tab" data-category="web-development">Web Development</button>
+              <button class="category-tab" data-category="trending-topics">Trending Topics</button>
+            </div>
+            <div class="search-container">
+              <input type="text" id="search-input" placeholder="Search blog posts...">
+              <button id="search-button">Search</button>
+            </div>
+          </div>
+          <div class="blog-posts-container">
+            <!-- Blog posts will be dynamically inserted here -->
+          </div>
+          <div class="load-more-container text-center mt-4">
+            <button id="load-more-button" class="btn btn-primary">Load More</button>
           </div>
         </div>
       </section>
