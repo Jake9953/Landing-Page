@@ -70,78 +70,58 @@ function shouldPublishPost(postDate) {
   return day === 1 || day === 3 || day === 5;
 }
 
-// Blog functionality
-const blogPostsContainer = document.querySelector('.blog-posts-container');
-const categoryTabs = document.querySelectorAll('.category-tab');
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
-const loadMoreButton = document.getElementById('load-more-button');
+// Lazy loading for images
+document.addEventListener("DOMContentLoaded", function () {
+  var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
-let currentCategory = 'all';
-let currentPage = 1;
-const postsPerPage = 6;
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target;
+          lazyImage.src = lazyImage.dataset.src;
+          lazyImage.classList.remove("lazy");
+          lazyImageObserver.unobserve(lazyImage);
+        }
+      });
+    });
 
-const blogPosts = [
-  // Blog posts data (you can add your blog post objects here)
-];
+    lazyImages.forEach(function (lazyImage) {
+      lazyImageObserver.observe(lazyImage);
+    });
+  } else {
+    // Fallback for browsers that don't support IntersectionObserver
+    let active = false;
 
-function renderBlogPosts(posts) {
-  blogPostsContainer.innerHTML = '';
-  posts.forEach(post => {
-    const postElement = document.createElement('article');
-    postElement.classList.add('blog-post');
-    postElement.innerHTML = `
-            <img src="${post.image}" alt="${post.title}" class="blog-post-image">
-            <div class="blog-post-content">
-                <h3 class="blog-post-title">${post.title}</h3>
-                <p class="blog-post-excerpt">${post.content.substring(0, 150)}...</p>
-                <div class="blog-post-meta">
-                    <span>${post.date}</span>
-                    <span>${post.readTime}</span>
-                </div>
-            </div>
-        `;
-    blogPostsContainer.appendChild(postElement);
-  });
-}
+    const lazyLoad = function () {
+      if (active === false) {
+        active = true;
 
-function filterPosts() {
-  const searchTerm = searchInput.value.toLowerCase();
-  const filteredPosts = blogPosts.filter(post =>
-    shouldPublishPost(post.date) &&
-    (currentCategory === 'all' || post.category === currentCategory) &&
-    (post.title.toLowerCase().includes(searchTerm) || post.content.toLowerCase().includes(searchTerm))
-  );
-  renderBlogPosts(filteredPosts.slice(0, currentPage * postsPerPage));
-  loadMoreButton.style.display = filteredPosts.length > currentPage * postsPerPage ? 'block' : 'none';
-}
+        setTimeout(function () {
+          lazyImages.forEach(function (lazyImage) {
+            if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+              lazyImage.src = lazyImage.dataset.src;
+              lazyImage.classList.remove("lazy");
 
-categoryTabs.forEach(tab => {
-  tab.addEventListener('click', function () {
-    categoryTabs.forEach(t => t.classList.remove('active'));
-    this.classList.add('active');
-    currentCategory = this.dataset.category;
-    currentPage = 1;
-    filterPosts();
-  });
-});
+              lazyImages = lazyImages.filter(function (image) {
+                return image !== lazyImage;
+              });
 
-searchButton.addEventListener('click', function () {
-  currentPage = 1;
-  filterPosts();
-});
+              if (lazyImages.length === 0) {
+                document.removeEventListener("scroll", lazyLoad);
+                window.removeEventListener("resize", lazyLoad);
+                window.removeEventListener("orientationchange", lazyLoad);
+              }
+            }
+          });
 
-searchInput.addEventListener('keyup', function (event) {
-  if (event.key === 'Enter') {
-    currentPage = 1;
-    filterPosts();
+          active = false;
+        }, 200);
+      }
+    };
+
+    document.addEventListener("scroll", lazyLoad);
+    window.addEventListener("resize", lazyLoad);
+    window.addEventListener("orientationchange", lazyLoad);
   }
 });
-
-loadMoreButton.addEventListener('click', function () {
-  currentPage++;
-  filterPosts();
-});
-
-// Initial call to display posts
-filterPosts();

@@ -236,17 +236,24 @@ body {
     padding: 20px;
 }
 
-.blog-card .card-body {
+.card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
 }
 
-.blog-card .read-more-btn,
-.blog-card .read-less-btn {
+.read-more-btn, .read-less-btn {
     align-self: flex-end;
     cursor: pointer;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    z-index: 1000;
 }
 
 footer {
@@ -270,14 +277,6 @@ footer p {
     font-size: 0.875rem;
 }
 
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-    z-index: 1000;
-}
-
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
@@ -287,7 +286,29 @@ footer p {
         font-size: 1.2rem;
     }
 
+    .skill-tags {
+        justify-content: center;
+    }
+
     .blog-card {
+        height: auto;
+    }
+
+    .card-inner {
+        transform-style: flat;
+    }
+
+    .card-back {
+        position: relative;
+        transform: rotateY(0);
+    }
+
+    .blog-card.flipped .card-inner {
+        transform: rotateY(0);
+    }
+
+    .card-front, .card-back {
+        position: relative;
         height: auto;
     }
 }
