@@ -8,11 +8,20 @@
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+.dark-mode {
+    --primary-color: #ecf0f1;
+    --secondary-color: #3498db;
+    --background-color: #2c3e50;
+    --text-color: #ecf0f1;
+    --white: #34495e;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
     line-height: 1.6;
+    transition: var(--transition);
 }
 
 .navbar {
@@ -66,7 +75,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg') no-repeat center center;
+    background: url('./images/bg.webp') no-repeat center center;
     background-size: cover;
     opacity: 0.1;
     z-index: 0;
@@ -121,46 +130,55 @@ body {
     box-shadow: var(--card-shadow);
 }
 
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
+.skill-item {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.skill-tag {
+.skill-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.skill-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.skill-bar {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
     background-color: var(--secondary-color);
-    color: var(--white);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: var(--transition);
+    transition: width 1s ease-in-out;
 }
 
-.skill-tag:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.service-card, .project-card {
+.service-card, .project-card, .blog-card {
     transition: var(--transition);
     border: none;
     box-shadow: var(--card-shadow);
     overflow: hidden;
+    height: 100%;
 }
 
-.service-card:hover, .project-card:hover {
+.service-card:hover, .project-card:hover, .blog-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-.service-card img, .project-card img {
+.service-card img, .project-card img, .blog-card img {
     height: 200px;
     object-fit: cover;
     transition: var(--transition);
 }
 
-.service-card:hover img, .project-card:hover img {
+.service-card:hover img, .project-card:hover img, .blog-card:hover img {
     transform: scale(1.1);
 }
 
@@ -174,78 +192,36 @@ body {
     padding: 80px 0;
 }
 
-.projects .nav-tabs {
-    border: none;
-    justify-content: center;
-    margin-bottom: 40px;
+.filter-btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.projects .nav-tabs .nav-link {
-    color: var(--text-color);
-    border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    border-radius: 30px;
-    transition: var(--transition);
-}
-
-.projects .nav-tabs .nav-link.active,
-.projects .nav-tabs .nav-link:hover {
-    color: var(--white);
+.filter-btn.active {
     background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
 }
 
-.blog {
-    background-color: var(--background-color);
-}
-
-.blog-card {
-    perspective: 1000px;
-    height: 600px;
-    position: relative;
-    overflow: hidden;
-}
-
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.blog-card.flipped .card-inner {
-    transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    overflow-y: auto;
-}
-
-.card-front {
-    z-index: 2;
-}
-
-.card-back {
-    transform: rotateY(180deg);
-    background-color: #f8f9fa;
+.testimonial-item {
+    text-align: center;
     padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    margin: 10px;
 }
 
-.card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 15px;
 }
 
-.read-more-btn, .read-less-btn {
-    align-self: flex-end;
-    cursor: pointer;
+.testimonial-author {
+    font-weight: bold;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--secondary-color);
 }
 
 #back-to-top {
@@ -272,11 +248,6 @@ footer a:hover {
     color: var(--secondary-color);
 }
 
-footer p {
-    margin-bottom: 0;
-    font-size: 0.875rem;
-}
-
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
@@ -286,29 +257,54 @@ footer p {
         font-size: 1.2rem;
     }
 
-    .skill-tags {
-        justify-content: center;
+    .skill-item {
+        margin-bottom: 20px;
     }
 
-    .blog-card {
-        height: auto;
+    .filter-btn {
+        margin-bottom: 10px;
     }
+}
 
-    .card-inner {
-        transform-style: flat;
-    }
+/* Accessibility Improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
 
-    .card-back {
-        position: relative;
-        transform: rotateY(0);
-    }
+:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
 
-    .blog-card.flipped .card-inner {
-        transform: rotateY(0);
-    }
+/* Dark mode toggle styles */
+#darkModeToggle {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: var(--transition);
+}
 
-    .card-front, .card-back {
-        position: relative;
-        height: auto;
-    }
+#darkModeToggle:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.dark-mode #darkModeToggle {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.dark-mode #darkModeToggle:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
 }
