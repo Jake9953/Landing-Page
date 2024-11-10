@@ -1,45 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Configuration object for all initialization settings
+  const CONFIG = {
+    aos: {
+      duration: 1000,
+      once: true,
+      offset: 100
+    },
+    swiper: {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    }
+  };
+
   // Initialize AOS
-  AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100
-  });
+  AOS.init(CONFIG.aos);
 
-  // Dark mode toggle
-  const darkModeToggle = document.getElementById('darkModeToggle');
-  const body = document.body;
-  const icon = darkModeToggle.querySelector('i');
-
-  function toggleDarkMode() {
-    body.classList.toggle('dark-mode');
-    const isDarkMode = body.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', isDarkMode);
-    icon.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
-  }
-
-  darkModeToggle.addEventListener('click', toggleDarkMode);
-
-  // Check for saved dark mode preference
-  if (localStorage.getItem('darkMode') === 'true') {
-    toggleDarkMode();
-  }
-
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-
-  // Navbar color change on scroll
-  const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
-  });
+  // Initialize Theme Manager
+  new ThemeManager();
 
   // Skills Matrix
   const skills = [
@@ -52,83 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
     { name: 'SEO', level: 75, icon: 'fas fa-search' }
   ];
 
-  const skillsMatrix = document.getElementById('skillsMatrix');
-  skills.forEach((skill, index) => {
-    const skillItem = document.createElement('div');
-    skillItem.className = 'col-md-3 col-sm-6 skill-item';
-    skillItem.setAttribute('data-aos', 'fade-up');
-    skillItem.setAttribute('data-aos-delay', index * 100);
-    skillItem.innerHTML = `
-      <i class="${skill.icon} skill-icon"></i>
-      <h3 class="skill-name">${skill.name}</h3>
-      <div class="skill-bar">
-        <div class="skill-progress" style="width: 0%"></div>
-      </div>
-    `;
-    skillsMatrix.appendChild(skillItem);
-  });
-
-  // Animate skill bars on scroll
-  const skillBars = document.querySelectorAll('.skill-progress');
-  const animateSkillBars = () => {
-    skillBars.forEach((bar, index) => {
-      if (isElementInViewport(bar)) {
-        setTimeout(() => {
-          bar.style.width = `${skills[index].level}%`;
-        }, 200 * index);
-      }
-    });
-  };
-
-  window.addEventListener('scroll', animateSkillBars);
-  animateSkillBars(); // Initial check
+  // Initialize Skills
+  new SkillsManager(skills);
 
   // Projects
   const projects = [
     { name: "Signal Cyber Cafe", category: "website", image: "./images/Signal Cyber.webp", github: "https://github.com/Jake9953/SIGNAL-CYBER-CAFE", live: "https://signallcybercafe.netlify.app/" },
     { name: "Luclin Enterprise Limited", category: "profile", image: "./images/pro1.webp", pdf: "./company-profiles/profile1.pdf" },
-    { name: "Majoph Enterprises Limited", category: "profile", image: "./images/pro2.webp", pdf: "./company-profiles/profile2.pdf" },
+    { name: "Majoph Enterprises", category: "profile", image: "./images/pro2.webp", pdf: "./company-profiles/profile2.pdf" },
     { name: "Jophin Enterprises", category: "profile", image: "./images/pro3.webp", pdf: "./company-profiles/profile3.pdf" },
   ];
 
-  const projectsGrid = document.getElementById('projectsGrid');
-  const filterButtons = document.querySelectorAll('.filter-btn');
-
-  const renderProjects = (category = 'all') => {
-    projectsGrid.innerHTML = '';
-    projects.forEach((project, index) => {
-      if (category === 'all' || project.category === category) {
-        const projectItem = document.createElement('div');
-        projectItem.className = 'col-md-4 mb-4';
-        projectItem.setAttribute('data-aos', 'fade-up');
-        projectItem.setAttribute('data-aos-delay', index * 100);
-        projectItem.innerHTML = `
-          <div class="card project-card">
-            <img src="${project.image}" class="card-img-top" alt="${project.name}" loading="lazy" />
-            <div class="card-body">
-              <h3 class="card-title">${project.name}</h3>
-              <div class="mt-3">
-                ${project.github ? `<a href="${project.github}" class="btn btn-outline-primary me-2" target="_blank" rel="noopener noreferrer">GitHub</a>` : ''}
-                ${project.live ? `<a href="${project.live}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site</a>` : ''}
-                ${project.pdf ? `<a href="${project.pdf}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View PDF</a>` : ''}
-              </div>
-            </div>
-          </div>
-        `;
-        projectsGrid.appendChild(projectItem);
-      }
-    });
-  };
-
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      renderProjects(button.getAttribute('data-filter'));
-    });
-  });
-
-  renderProjects(); // Initial render
+  // Initialize Projects
+  new ProjectFilter(projects);
 
   // Testimonials
   const testimonials = [
@@ -151,27 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Initialize Swiper
-  new Swiper('.testimonialSwiper', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-  });
+  new Swiper('.testimonialSwiper', CONFIG.swiper);
 
   // Blog Posts
   const blogPosts = [
@@ -286,16 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Form submission
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-    console.log('Form submitted with data:', Object.fromEntries(formData));
-    alert('Thank you for your message! We will get back to you soon.');
-    form.reset();
-  });
-
   // Back to top button
   const backToTopButton = document.getElementById('back-to-top');
   window.addEventListener('scroll', () => {
@@ -310,44 +206,196 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Helper function to check if an element is in viewport
-  function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
+  // Initialize smooth scroll
+  initSmoothScroll();
 
-  // Dark mode toggle functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
+  // Initialize form handler
+  initFormHandler();
+});
 
-    // Check for saved dark mode preference
-    const darkMode = localStorage.getItem('darkMode');
-
-    // Set initial dark mode state
-    if (darkMode === 'enabled') {
-      body.classList.add('dark-mode');
-      darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-      darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    }
-
-    // Toggle dark mode
-    darkModeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-
-      if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-      } else {
-        localStorage.setItem('darkMode', null);
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-      }
+// Utility Functions
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+        behavior: 'smooth'
+      });
     });
   });
-});
+}
+
+function initFormHandler() {
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    // Add your form submission logic here
+    console.log('Form submitted:', Object.fromEntries(formData));
+    alert('Thank you for your message! We will get back to you soon.');
+    form.reset();
+  });
+}
+
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+class ThemeManager {
+  constructor() {
+    this.darkModeToggle = document.getElementById('darkModeToggle');
+    this.body = document.body;
+    this.icon = this.darkModeToggle?.querySelector('i');
+    this.init();
+  }
+
+  init() {
+    if (!this.darkModeToggle) return;
+
+    // Check saved preference
+    const darkMode = localStorage.getItem('darkMode') === 'enabled';
+    if (darkMode) this.enableDarkMode();
+
+    // Add event listener
+    this.darkModeToggle.addEventListener('click', () => this.toggleDarkMode());
+  }
+
+  toggleDarkMode() {
+    if (this.body.classList.contains('dark-mode')) {
+      this.disableDarkMode();
+    } else {
+      this.enableDarkMode();
+    }
+    }
+
+  enableDarkMode() {
+    this.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+    this.icon?.classList.replace('fa-moon', 'fa-sun');
+  }
+
+  disableDarkMode() {
+    this.body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', null);
+    this.icon?.classList.replace('fa-sun', 'fa-moon');
+  }
+}
+
+class SkillsManager {
+  constructor(skills) {
+    this.skills = skills;
+    this.skillsMatrix = document.getElementById('skillsMatrix');
+    this.skillBars = [];
+    this.init();
+  }
+
+  init() {
+    if (!this.skillsMatrix) return;
+    this.renderSkills();
+    this.initializeObserver();
+  }
+
+  renderSkills() {
+    this.skills.forEach((skill, index) => {
+      const skillItem = this.createSkillItem(skill, index);
+      this.skillsMatrix.appendChild(skillItem);
+      this.skillBars.push(skillItem.querySelector('.skill-progress'));
+    });
+  }
+
+  createSkillItem(skill, index) {
+    const div = document.createElement('div');
+    div.className = 'col-md-3 col-sm-6 skill-item';
+    div.setAttribute('data-aos', 'fade-up');
+    div.setAttribute('data-aos-delay', index * 100);
+    div.innerHTML = `
+            <i class="${skill.icon} skill-icon"></i>
+            <h3 class="skill-name">${skill.name}</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 0%"></div>
+            </div>
+        `;
+    return div;
+  }
+
+  initializeObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => this.handleIntersection(entries),
+      { threshold: 0.1 }
+    );
+
+    this.skillBars.forEach(bar => observer.observe(bar));
+  }
+
+  handleIntersection(entries) {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.width = `${this.skills[index].level}%`;
+        }, 200 * index);
+      }
+    });
+  }
+}
+
+class ProjectFilter {
+  constructor(projects) {
+    this.projects = projects;
+    this.grid = document.getElementById('projectsGrid');
+    this.filterButtons = document.querySelectorAll('.filter-btn');
+    this.init();
+  }
+
+  init() {
+    if (!this.grid) return;
+    this.addEventListeners();
+    this.renderProjects();
+  }
+
+  addEventListeners() {
+    this.filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        this.filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        this.renderProjects(button.getAttribute('data-filter'));
+      });
+    });
+  }
+
+  renderProjects(category = 'all') {
+    this.grid.innerHTML = '';
+    this.projects
+      .filter(project => category === 'all' || project.category === category)
+      .forEach((project, index) => {
+        const projectItem = this.createProjectItem(project, index);
+        this.grid.appendChild(projectItem);
+      });
+  }
+
+  createProjectItem(project, index) {
+    const div = document.createElement('div');
+    div.className = 'col-md-4 mb-4';
+    div.setAttribute('data-aos', 'fade-up');
+    div.setAttribute('data-aos-delay', index * 100);
+    div.innerHTML = `
+            <div class="card project-card">
+                <img src="${project.image}" class="card-img-top" alt="${project.name}" loading="lazy" />
+                <div class="card-body">
+                    <h3 class="card-title">${project.name}</h3>
+                    <div class="mt-3">
+                        ${project.github ? `<a href="${project.github}" class="btn btn-outline-primary me-2" target="_blank" rel="noopener noreferrer">GitHub</a>` : ''}
+                        ${project.live ? `<a href="${project.live}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site</a>` : ''}
+                        ${project.pdf ? `<a href="${project.pdf}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View PDF</a>` : ''}
+                    </div>
+                </div>
+            </div>
+        `;
+    return div;
+  }
+}
