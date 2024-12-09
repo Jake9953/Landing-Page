@@ -82,57 +82,195 @@ document.addEventListener('DOMContentLoaded', () => {
   // Blog Posts
   const blogPosts = [
     {
-      title: "The Rise of AI-Powered Web Development: Revolutionizing the Digital Landscape",
+      title: "The Impact of AI on Modern Web Development",
       date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-      readTime: "7 min",
-      excerpt: "Discover how artificial intelligence is transforming web development, from automated coding to personalized user experiences, and what it means for the future of the industry.",
+      readTime: "6 min",
+      excerpt: "Exploring how AI tools are revolutionizing web development workflows and code generation.",
       content: `
-        <p>Artificial Intelligence (AI) is rapidly changing the landscape of web development, offering unprecedented opportunities for innovation and efficiency. This transformative technology is not just a buzzword; it's actively reshaping how websites are built, optimized, and maintained.</p>
-        <h3>1. AI-Powered Code Generation</h3>
-        <p>One of the most exciting developments is the emergence of AI tools that can generate code based on natural language descriptions. These tools are becoming increasingly sophisticated, capable of creating entire web components or even full pages with minimal human input.</p>
-        <h3>2. Intelligent Design Systems</h3>
-        <p>AI is revolutionizing web design by creating and maintaining adaptive design systems. These systems can automatically adjust to brand guidelines and user preferences, ensuring consistency across platforms while providing personalized experiences.</p>
-        <h3>3. Enhanced User Experiences</h3>
-        <p>Machine learning algorithms are enabling websites to offer highly personalized experiences. By analyzing user behavior, AI can adjust content, layout, and functionality in real-time, creating a more engaging and relevant experience for each visitor.</p>
-        <p>As we move forward, staying informed about AI advancements and integrating these technologies into web development workflows will be crucial for developers looking to stay competitive in an ever-evolving digital landscape.</p>
-      `,
+            <p>The integration of AI in web development has transformed how developers work, bringing both opportunities and challenges. As we move forward in 2024, the impact of AI on web development continues to grow exponentially.</p>
+
+            <h3>1. Code Generation and Assistance</h3>
+            <p>AI-powered tools have revolutionized how we write code. GitHub Copilot and similar AI assistants can now:</p>
+            <ul>
+                <li>Generate entire component structures based on natural language descriptions</li>
+                <li>Suggest optimizations for existing code</li>
+                <li>Identify potential security vulnerabilities in real-time</li>
+                <li>Auto-complete complex code patterns and boilerplate</li>
+            </ul>
+            <p>However, developers need to maintain a balance between AI assistance and understanding the underlying principles of their code.</p>
+
+            <h3>2. Design Automation</h3>
+            <p>AI is transforming the design aspect of web development through:</p>
+            <ul>
+                <li>Automated responsive design adjustments</li>
+                <li>Smart color palette generation based on brand guidelines</li>
+                <li>UI component suggestions based on user behavior analysis</li>
+                <li>A/B testing automation and optimization</li>
+            </ul>
+            <p>These advancements are making it possible to create more personalized and effective user experiences.</p>
+
+            <h3>3. Testing and Quality Assurance</h3>
+            <p>The testing landscape has evolved with AI integration:</p>
+            <ul>
+                <li>Automated test case generation based on code changes</li>
+                <li>Predictive analytics for potential failure points</li>
+                <li>Visual regression testing with AI-powered image comparison</li>
+                <li>Performance optimization suggestions based on usage patterns</li>
+            </ul>
+
+            <h3>4. Future Implications</h3>
+            <p>As AI continues to evolve, we can expect:</p>
+            <ul>
+                <li>More sophisticated code generation capabilities</li>
+                <li>Enhanced debugging and error prediction</li>
+                <li>Automated optimization of user experiences</li>
+                <li>Greater integration with development workflows</li>
+            </ul>
+
+            <p>While AI brings numerous benefits, it's crucial for developers to use these tools as enhancers rather than replacements for fundamental development skills.</p>
+        `,
       image: "./images/AI.webp"
     },
     {
-      title: "The Future of Web Performance: Optimizing for Speed and User Experience",
+      title: "Advanced CSS Techniques for Modern Web Applications",
       date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
       readTime: "7 min",
-      excerpt: "Explore cutting-edge techniques and best practices for boosting web performance, enhancing user experience, and staying ahead in the fast-paced world of web development.",
+      excerpt: "Deep dive into advanced CSS techniques that are shaping modern web design.",
       content: `
-        <p>In today's digital landscape, web performance is more critical than ever. Users expect lightning-fast load times and smooth interactions, regardless of their device or network conditions. This article delves into the latest strategies for optimizing web performance and enhancing user experience.</p>
-        <h3>1. Core Web Vitals and User-Centric Metrics</h3>
-        <p>Google's Core Web Vitals have become a crucial benchmark for measuring user experience. We'll explore how to optimize for Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS) to ensure your website meets modern performance standards.</p>
-        <h3>2. Advanced Caching Strategies</h3>
-        <p>Implementing sophisticated caching techniques can significantly improve load times and reduce server load. We'll discuss strategies like service workers, cache-first approaches, and intelligent preloading to create near-instantaneous experiences for returning visitors.</p>
-        <h3>3. Next-Generation Image and Video Optimization</h3>
-        <p>Visual content often accounts for the majority of a webpage's weight. Learn about new image formats like WebP and AVIF, as well as adaptive streaming techniques for video, to deliver high-quality media with minimal bandwidth usage.</p>
-        <p>By focusing on these advanced performance optimization techniques, developers can create web experiences that not only meet but exceed user expectations, leading to higher engagement, improved conversions, and better overall success for web projects.</p>
-      `,
-      image: "./images/webnews.webp"
+            <p>Modern CSS has evolved into a powerful language for creating sophisticated web interfaces. Let's explore the most impactful features and techniques that are transforming web development.</p>
+
+            <h3>1. Modern Layout Systems</h3>
+            <p>CSS Grid and Flexbox have revolutionized web layouts:</p>
+            <ul>
+                <li>CSS Grid for complex 2D layouts
+                    <ul>
+                        <li>Grid templates and areas</li>
+                        <li>Auto-fit and auto-fill</li>
+                        <li>Masonry layouts</li>
+                    </ul>
+                </li>
+                <li>Flexbox for 1D layouts
+                    <ul>
+                        <li>Dynamic content distribution</li>
+                        <li>Alignment control</li>
+                        <li>Responsive design patterns</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>2. Custom Properties and Dynamic Theming</h3>
+            <p>CSS variables have transformed how we handle design systems:</p>
+            <ul>
+                <li>Dynamic theme switching</li>
+                <li>Responsive value adaptation</li>
+                <li>Component-level customization</li>
+                <li>Runtime value manipulation with JavaScript</li>
+            </ul>
+
+            <h3>3. Advanced Animations and Transitions</h3>
+            <p>Modern CSS animations offer powerful capabilities:</p>
+            <ul>
+                <li>CSS Custom Properties in animations</li>
+                <li>GPU-accelerated transforms</li>
+                <li>Scroll-driven animations</li>
+                <li>Complex timing functions</li>
+            </ul>
+
+            <h3>4. Modern CSS Features</h3>
+            <p>Latest CSS features enhancing web development:</p>
+            <ul>
+                <li>Container Queries for component-level responsiveness</li>
+                <li>Cascade Layers for better specificity management</li>
+                <li>Subgrid for nested grid alignment</li>
+                <li>:has() selector for parent targeting</li>
+            </ul>
+
+            <p>These techniques are essential for building modern, maintainable, and performant web applications.</p>
+        `
+      ,
+      image: "./images/webdev.webp"
     },
     {
-      title: "Securing the Modern Web: Essential Cybersecurity Practices for Developers",
+      title: "Full-Stack Development Trends and Best Practices in 2024",
       date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
       readTime: "7 min",
-      excerpt: "Learn about the latest cybersecurity threats facing web applications and the essential practices developers must adopt to build secure, resilient websites in an increasingly hostile digital environment.",
+      excerpt: "Comprehensive guide to current full-stack development practices and emerging trends.",
       content: `
-        <p>As web applications become more complex and handle increasingly sensitive data, the importance of robust cybersecurity practices cannot be overstated. This article explores the critical security measures that modern web developers must implement to protect their applications and users.</p>
-        <h3>1. Shift-Left Security: Integrating Security into the Development Process</h3>
-        <p>We'll discuss the concept of "shift-left" security and how to integrate security practices early in the development lifecycle. This includes using static and dynamic analysis tools, conducting regular code reviews, and fostering a security-first culture within development teams.</p>
-        <h3>2. Advanced Authentication and Authorization Techniques</h3>
-        <p>Beyond basic password protection, we'll explore advanced authentication methods such as multi-factor authentication (MFA), biometrics, and risk-based authentication. We'll also delve into implementing robust authorization systems to ensure users can only access appropriate resources.</p>
-        <h3>3. Protecting Against Emerging Threats</h3>
-        <p>The threat landscape is constantly evolving. Learn about the latest attack vectors, such as API vulnerabilities, serverless security challenges, and supply chain attacks. We'll provide strategies for staying ahead of these threats and maintaining the integrity of your web applications.</p>
-        <p>By adopting these advanced security practices, developers can create web applications that are not only feature-rich and performant but also resilient against the ever-growing array of cyber threats in today's digital world.</p>
-      `,
-      image: "./images/TECH.webp"
+            <p>The landscape of full-stack development continues to evolve rapidly. Understanding current trends and best practices is crucial for building modern applications.</p>
+
+            <h3>1. Modern Architecture Patterns</h3>
+            <p>Current architectural approaches focus on:</p>
+            <ul>
+                <li>Microservices Architecture
+                    <ul>
+                        <li>Service isolation and scaling</li>
+                        <li>Independent deployment</li>
+                        <li>Technology agnostic services</li>
+                    </ul>
+                </li>
+                <li>Serverless Computing
+                    <ul>
+                        <li>Function-as-a-Service (FaaS)</li>
+                        <li>Event-driven architecture</li>
+                        <li>Cost optimization</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>2. Frontend Development</h3>
+            <p>Modern frontend development emphasizes:</p>
+            <ul>
+                <li>Framework Evolution
+                    <ul>
+                        <li>React Server Components</li>
+                        <li>Vue 3 Composition API</li>
+                        <li>Angular Signals</li>
+                    </ul>
+                </li>
+                <li>Performance Optimization
+                    <ul>
+                        <li>Core Web Vitals</li>
+                        <li>Bundle optimization</li>
+                        <li>Progressive enhancement</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>3. Backend Technologies</h3>
+            <p>Backend development focuses on:</p>
+            <ul>
+                <li>API Design
+                    GraphQL adoption</li>
+                        <li>REST best practices</li>
+                        <li>API security</li>
+                    </ul>
+                </li>
+                <li>Database Solutions
+                    <ul>
+                        <li>NoSQL scalability</li>
+                        <li>NewSQL capabilities</li>
+                        <li>Data modeling patterns</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>4. DevOps Integration</h3>
+            <p>Essential DevOps practices include:</p>
+            <ul>
+                <li>Continuous Integration/Deployment</li>
+                <li>Infrastructure as Code</li>
+                <li>Monitoring and Observability</li>
+                <li>Security Integration (DevSecOps)</li>
+            </ul>
+
+            <p>Success in full-stack development requires keeping up with these evolving practices while maintaining code quality and performance.</p>
+        `
+      ,
+      image: "./images/webnews.webp"
     }
   ];
+
+
 
   const blogPostsContainer = document.getElementById('blogPosts');
   blogPosts.forEach((post, index) => {

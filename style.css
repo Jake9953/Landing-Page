@@ -10,6 +10,11 @@
     --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --glass-blur: blur(10px);
+    /* Add these new variables alongside existing ones */
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --clay-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
+                   -10px -10px 20px rgba(255, 255, 255, 0.5);
     --button-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --gradient-primary: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     --gradient-dark: linear-gradient(135deg, #2c3e50, #3498db);
@@ -39,12 +44,13 @@ body {
 }
 
 .navbar {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
     padding: 1rem 0;
 }
+
 
 .navbar-brand {
     font-weight: 700;
@@ -196,15 +202,16 @@ body {
 }
 
 .service-card, .project-card, .blog-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
     box-shadow: var(--card-shadow);
     border-radius: 16px;
     transition: var(--transition);
     overflow: hidden;
 }
+
 
 .service-card:hover, .project-card:hover, .blog-card:hover {
     transform: translateY(-8px);
