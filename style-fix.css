@@ -1,0 +1,44 @@
+/* Production-ready style fixes */
+
+/* Fix card styling */
+.modern-styles-enabled .card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modern-styles-enabled .card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Fix button styling */
+.modern-styles-enabled .btn {
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.modern-styles-enabled .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Fix text gradient */
+.modern-styles-enabled .text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback */
+  display: inline-block; /* Prevents overflow issues */
+  overflow: visible; /* Ensures no unwanted clipping */
+}
+
+/* Fix dark mode contrast issues */
+.modern-styles-enabled.dark-mode {
+  --text-color: #f5f5f5;
+}
+
+.modern-styles-enabled.dark-mode .card {
+  background-color: var(--white);
+  color: var(--text-color);
+}

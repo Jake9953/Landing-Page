@@ -6,6 +6,7 @@
     --warning-color: #f1c40f;
     --background-color: #ecf0f1;
     --text-color: #34495e;
+    --text-color-inverse: #ecf0f1; /* For dark text on light backgrounds in dark mode */
     --white: #ffffff;
     --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -23,11 +24,12 @@
 }
 
 .dark-mode {
-    --primary-color: #ecf0f1;
-    --background-color: #1a1a1a;
-    --text-color: #ecf0f1;
-    --white: #2c2c2c;
-    --card-background: #2d2d2d;
+    --primary-color: #ecf0f1; /* Light color for dark mode primary elements */
+    --background-color: #1a1a1a; /* Dark background */
+    --text-color: #ecf0f1; /* Light text for dark backgrounds */
+    --text-color-inverse: #1a1a1a; /* Dark text for light backgrounds in dark mode */
+    --white: #2d2d2d; /* Represents a "dark white" or off-black for card backgrounds etc. */
+    --card-background: #2d2d2d; /* Specific card background for dark mode */
     --glass-effect: rgba(255, 255, 255, 0.05);
     --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     
@@ -84,7 +86,7 @@ body {
 
 .hero {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--white); /* This will be #ffffff in light, #2c2c2c in dark */
     padding: 120px 0;
     position: relative;
     overflow: hidden;
@@ -279,13 +281,13 @@ body {
 }
 
 footer {
-    background-color: #1a2638;
-    color: var(--white);
+    background-color: #1a2638; /* Keep this dark for both modes */
+    color: #ecf0f1; /* Use a light text color for footer in both modes */
     padding: 50px 0;
 }
 
 footer a {
-    color: var(--white);
+    color: #ecf0f1; /* Use a light link color for footer in both modes */
     font-size: 1.5rem;
     transition: var(--transition);
 }
@@ -387,13 +389,99 @@ footer a:hover {
 .dark-mode .service-card,
 .dark-mode .project-card,
 .dark-mode .blog-card {
-    background: var(--white);
+    background: var(--card-background); /* Use specific dark card background */
     box-shadow: var(--card-shadow);
 }
 
 .dark-mode .social-icons a {
     background: var(--glass-effect);
     color: var(--text-color);
+}
+
+/* Dark mode text overrides */
+.dark-mode .hero {
+    color: var(--text-color); /* Ensure hero text is light in dark mode */
+}
+
+.dark-mode .service-card .card-title,
+.dark-mode .project-card .card-title, 
+.dark-mode .blog-card .card-title {
+    color: var(--text-color); /* Light text for card titles in dark mode */
+}
+
+.dark-mode .service-card .card-text,
+.dark-mode .project-card .card-text,
+.dark-mode .blog-card .card-text,
+.dark-mode .testimonial-text,
+.dark-mode .testimonial-author {
+    color: var(--text-color); /* Light text for card content in dark mode */
+}
+
+.dark-mode .text-muted {
+    color: #a0aec0 !important; /* Lighter muted text for better visibility in dark mode */
+}
+
+.dark-mode .skill-bar {
+    background: rgba(255, 255, 255, 0.1); /* Lighter background for skill bars in dark mode */
+}
+
+.dark-mode .testimonial-item {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+.dark-mode .projects {
+    background-color: var(--background-color); /* Use dark background for projects section in dark mode */
+}
+
+.dark-mode .btn-outline-primary {
+    color: var(--text-color);
+    border-color: var(--secondary-color);
+}
+
+.dark-mode .btn-outline-primary:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.dark-mode .filter-btn {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border-color: var(--secondary-color);
+}
+
+.dark-mode .filter-btn.active {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.dark-mode ::placeholder {
+    color: #a0aec0;
+    opacity: 0.7;
+}
+
+.dark-mode .form-control {
+    background-color: var(--white);
+    color: var(--text-color);
+    border-color: #4a5568;
+}
+
+.dark-mode .form-label {
+    color: var(--text-color);
+}
+
+/* Fix for modal in dark mode */
+.dark-mode .modal-content {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+.dark-mode .modal-header {
+    border-bottom: 1px solid #4a5568;
+}
+
+.dark-mode .modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
 }
 
 html {

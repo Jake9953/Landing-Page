@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Ensure modern styles are applied
+  document.body.classList.add('modern-styles-enabled');
+
   // Configuration object for all initialization settings
   const CONFIG = {
     aos: {
@@ -48,9 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Projects
   const projects = [
     { name: "Signal Cyber Cafe", category: "website", image: "./images/Signal Cyber.webp", github: "https://github.com/Jake9953/SIGNAL-CYBER-CAFE", live: "https://signallcybercafe.netlify.app/" },
-    { name: "Luclin Enterprise Limited", category: "profile", image: "./images/pro1.webp", pdf: "./company-profiles/profile1.pdf" },
-    { name: "Majoph Enterprises", category: "profile", image: "./images/pro2.webp", pdf: "./company-profiles/profile2.pdf" },
-    { name: "Jophin Enterprises", category: "profile", image: "./images/pro3.webp", pdf: "./company-profiles/profile3.pdf" },
+    { name: "Luclin Enterprise Limited", category: "profile", image: "./images/pro1.webp", pdf: "../profiles/profile1.pdf" },
+    { name: "Majoph Enterprises", category: "profile", image: "./images/pro2.webp", pdf: "../profiles/profile2.pdf" },
+    { name: "Jophin Enterprises", category: "profile", image: "./images/pro3.webp", pdf: "../profiles/profile3.pdf" },
+    { name: "Students Learning Management System", category: "website", image: "../images/Dashboard.jpeg", protected: true, url: "https://class-management-system-ashen.vercel.app/", password: "Jake123" },
   ];
 
   // Initialize Projects
@@ -495,6 +499,8 @@ class ProjectFilter {
     this.addEventListeners();
     this.renderProjects();
   }
+  // This method is no longer needed as we're using inline event handlers
+  // for better context management
 
   addEventListeners() {
     this.filterButtons.forEach(button => {
@@ -514,26 +520,139 @@ class ProjectFilter {
         const projectItem = this.createProjectItem(project, index);
         this.grid.appendChild(projectItem);
       });
-  }
-
-  createProjectItem(project, index) {
+  } createProjectItem(project, index) {
     const div = document.createElement('div');
     div.className = 'col-md-4 mb-4';
     div.setAttribute('data-aos', 'fade-up');
     div.setAttribute('data-aos-delay', index * 100);
+
+    let projectButtons = '';
+
+    // Handle GitHub button
+    if (project.github) {
+      projectButtons += `<a href="${project.github}" class="btn btn-outline-primary me-2" target="_blank" rel="noopener noreferrer">GitHub</a>`;
+    }
+
+    // Handle Live Site button
+    if (project.live) {
+      projectButtons += `<a href="${project.live}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site</a>`;
+    }
+
+    // Handle PDF button
+    if (project.pdf) {
+      projectButtons += `<a href="${project.pdf}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View PDF</a>`;
+    }
+
+    // Handle password-protected URL
+    if (project.protected && project.url) {
+      projectButtons += `<button class="btn btn-primary protected-link" data-url="${project.url}" data-password="${project.password}">View Project</button>`;
+    }
+
     div.innerHTML = `
             <div class="card project-card">
                 <img src="${project.image}" class="card-img-top" alt="${project.name}" loading="lazy" />
                 <div class="card-body">
                     <h3 class="card-title">${project.name}</h3>
                     <div class="mt-3">
-                        ${project.github ? `<a href="${project.github}" class="btn btn-outline-primary me-2" target="_blank" rel="noopener noreferrer">GitHub</a>` : ''}
-                        ${project.live ? `<a href="${project.live}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site</a>` : ''}
-                        ${project.pdf ? `<a href="${project.pdf}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View PDF</a>` : ''}
+                        ${projectButtons}
                     </div>
                 </div>
             </div>
         `;
+
+    // Add event listener for password-protected links
+    if (project.protected && project.url) {
+      setTimeout(() => {
+        const protectedLink = div.querySelector('.protected-link');
+        if (protectedLink) {
+          protectedLink.addEventListener('click', (e) => {
+            const url = e.target.getAttribute('data-url');
+            const correctPassword = e.target.getAttribute('data-password');
+            const projectName = project.name;
+
+            const userPassword = prompt('Please enter the password to access this project:');
+
+            if (userPassword === correctPassword) {
+              // Create a new intermediate page with a link to the protected content
+              const newWindow = window.open('', '_blank');
+              newWindow.document.write(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>Access ${projectName}</title>
+                  <style>
+                    body {
+                      font-family: 'Arial', sans-serif;
+                      background-color: #f5f5f5;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      height: 100vh;
+                      margin: 0;
+                      padding: 20px;
+                      text-align: center;
+                    }
+                    .container {
+                      background-color: white;
+                      border-radius: 8px;
+                      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                      padding: 30px;
+                      max-width: 600px;
+                    }
+                    h1 {
+                      color: #2c3e50;
+                      margin-bottom: 20px;
+                    }
+                    p {
+                      color: #34495e;
+                      margin-bottom: 30px;
+                      line-height: 1.6;
+                    }
+                    .btn {
+                      display: inline-block;
+                      background: linear-gradient(135deg, #3498db, #2980b9);
+                      color: white;
+                      text-decoration: none;
+                      padding: 12px 30px;
+                      border-radius: 30px;
+                      font-weight: 600;
+                      transition: all 0.3s;
+                      border: none;
+                      cursor: pointer;
+                    }
+                    .btn:hover {
+                      transform: translateY(-3px);
+                      box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+                    }
+                    .note {
+                      font-size: 0.9rem;
+                      color: #7f8c8d;
+                      margin-top: 20px;
+                    }
+                  </style>
+                </head>
+                <body>
+                  <div class="container">
+                    <h1>Access Granted</h1>
+                    <p>You have successfully entered the correct password for <strong>${projectName}</strong>. Click the button below to access the project.</p>
+                    <a href="${url}" class="btn" target="_blank">Access ${projectName}</a>
+                    <p class="note">Note: This is a protected project. Please do not share access credentials.</p>
+                  </div>
+                </body>
+                </html>
+              `);
+              newWindow.document.close();
+            } else if (userPassword !== null) {
+              // Only show error if user didn't press cancel
+              alert('Incorrect password. Please try again.');
+            }
+          });
+        }
+      }, 0);
+    }
+
     return div;
   }
 }
