@@ -47,9 +47,7 @@
     />    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
       rel="stylesheet"
-    />    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="modern-styles.css" />
-    <link rel="stylesheet" href="style-fix.css" />
+    />    <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google tag (gtag.js) -->
     <script
@@ -131,19 +129,17 @@
                 <a class="nav-link" href="#projects">Projects</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#blog">Blog</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="#contact">Contact</a>
               </li>
             </ul>
             <div class="ms-3">
               <button
                 id="darkModeToggle"
-                class="btn btn-outline-primary"
+                class="dark-mode-toggle"
                 aria-label="Toggle dark mode"
+                type="button"
               >
-                <i class="fas fa-moon"></i>
+                <i class="fas fa-moon" aria-hidden="true"></i>
               </button>
             </div>
           </div>
@@ -152,30 +148,35 @@
     </header>
 
     <main id="main-content">      <section id="hero" class="hero">
+        <div class="hero-shape" aria-hidden="true"></div>
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-6">
-              <h1 class="display-4 fw-bold mb-4 text-gradient" data-aos="fade-up">
+              <h1 class="text-gradient" data-aos="fade-up">
                 Jacob Wambua
               </h1>
-              <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+              <p class="lead" data-aos="fade-up" data-aos-delay="100">
                 Web Developer &amp; IT Consultant
               </p>
-              <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+              <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
                 I design websites, logos, company profiles, and offer IT
                 consultancy to help businesses improve their digital presence
                 and operational efficiency.
               </p>
-              <a
-                href="https://wa.me/254111309187"
-                target="_blank"
-                class="btn btn-primary btn-lg"
-                data-aos="fade-up"
-                data-aos-delay="300"
-                >Get in Touch</a
-              >
+              <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+                <a
+                  href="https://wa.me/254111309187"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary btn-lg"
+                  >Get in Touch</a
+                >
+                <a href="#about" class="btn btn-outline-primary btn-lg">
+                  Learn More
+                </a>
+              </div>
             </div>
-            <div class="col-lg-6 d-none d-lg-block">
+            <div class="col-lg-6">
               <div class="hero-image" data-aos="zoom-in">
                 <img
                   src="./images/about.webp"
@@ -183,6 +184,7 @@
                   class="img-fluid rounded-circle"
                   width="500"
                   height="500"
+                  loading="eager"
                 />
               </div>
             </div>
@@ -222,73 +224,118 @@
 
       <section id="services" class="services py-5 bg-light">
         <div class="container">
-          <h2 class="text-center mb-5" data-aos="fade-up">Services</h2>
+          <div class="text-center mb-5">
+            <h2 data-aos="fade-up">Services</h2>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">
+              Comprehensive digital solutions for your business growth
+            </p>
+          </div>
           <div class="row">
-            <div class="col-md-3 mb-4" data-aos="fade-up">
+            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up">
               <div class="card service-card h-100">
-                <img
-                  src="./images/webdev.webp"
-                  class="card-img-top"
-                  alt="Web Development"
-                  loading="lazy"
-                />
+                <div class="card-img-container">
+                  <img
+                    src="./images/webdev.webp"
+                    class="card-img-top"
+                    alt="Web Development Services"
+                    loading="lazy"
+                  />
+                </div>
                 <div class="card-body">
-                  <h3 class="card-title">Web Development</h3>
+                  <h3 class="card-title">
+                    <i class="fas fa-code" aria-hidden="true"></i>
+                    Web Development
+                  </h3>
                   <p class="card-text">
                     Custom-built websites tailored to your unique business
-                    needs.
+                    needs using modern technologies and best practices.
                   </p>
+                  <ul class="service-features">
+                    <li>Responsive Design</li>
+                    <li>Performance Optimization</li>
+                    <li>SEO Implementation</li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
               <div class="card service-card h-100">
-                <img
-                  src="./images/Logo.webp"
-                  class="card-img-top"
-                  alt="Logo Design"
-                  loading="lazy"
-                />
+                <div class="card-img-container">
+                  <img
+                    src="./images/Logo.webp"
+                    class="card-img-top"
+                    alt="Logo Design Services"
+                    loading="lazy"
+                  />
+                </div>
                 <div class="card-body">
-                  <h3 class="card-title">Logo Design</h3>
+                  <h3 class="card-title">
+                    <i class="fas fa-palette" aria-hidden="true"></i>
+                    Logo Design
+                  </h3>
                   <p class="card-text">
-                    Design Professional Eye-catching logos that represent your
-                    brand's identity.
+                    Professional eye-catching logos that represent your
+                    brand's identity and values effectively.
                   </p>
+                  <ul class="service-features">
+                    <li>Brand Identity</li>
+                    <li>Multiple Formats</li>
+                    <li>Revision Rounds</li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
               <div class="card service-card h-100">
-                <img
-                  src="./images/Company profile.webp"
-                  class="card-img-top"
-                  alt="Company Profiles"
-                  loading="lazy"
-                />
+                <div class="card-img-container">
+                  <img
+                    src="./images/Company profile.webp"
+                    class="card-img-top"
+                    alt="Company Profile Services"
+                    loading="lazy"
+                  />
+                </div>
                 <div class="card-body">
-                  <h3 class="card-title">Company Profiles</h3>
+                  <h3 class="card-title">
+                    <i class="fas fa-building" aria-hidden="true"></i>
+                    Company Profiles
+                  </h3>
                   <p class="card-text">
-                    I will craft Professional documents showcasing your
-                    company's strengths.
+                    Craft professional documents showcasing your
+                    company's strengths and achievements.
                   </p>
+                  <ul class="service-features">
+                    <li>Professional Layout</li>
+                    <li>Content Strategy</li>
+                    <li>Print & Digital</li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
               <div class="card service-card h-100">
-                <img
-                  src="./images/IT CONSUL.webp"
-                  class="card-img-top"
-                  alt="IT Consultancy"
-                  loading="lazy"
-                />
+                <div class="card-img-container">
+                  <img
+                    src="./images/IT CONSUL.webp"
+                    class="card-img-top"
+                    alt="IT Consultancy Services"
+                    loading="lazy"
+                  />
+                </div>
                 <div class="card-body">
-                  <h3 class="card-title">IT Consultancy</h3>
+                  <h3 class="card-title">
+                    <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                    IT Consultancy
+                  </h3>
                   <p class="card-text">
-                    We offer IT consultancy services to help you make informed
-                    decisions to grow your business.
+                    Expert IT consultancy services to help you make informed
+                    decisions and grow your business effectively.
                   </p>
+                  <ul class="service-features">
+                    <li>Technology Strategy</li>
+                    <li>System Integration</li>
+                    <li>Digital Transformation</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -305,21 +352,40 @@
         </div>
       </section>
 
-      <section id="projects" class="projects py-5 bg-light">
+      <section id="projects" class="projects py-5">
         <div class="container">
-          <h2 class="text-center mb-5" data-aos="fade-up">Projects</h2>
-          <div class="mb-4 text-center">
-            <button class="btn btn-primary filter-btn active" data-filter="all">
-              All
-            </button>
-            <button class="btn btn-primary filter-btn" data-filter="website">
-              Websites
-            </button>
-            <button class="btn btn-primary filter-btn" data-filter="profile">
-              Company Profiles
-            </button>
+          <div class="text-center mb-5">
+            <h2 data-aos="fade-up">Projects</h2>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">
+              Showcasing my work in web development and business solutions
+            </p>
           </div>
-          <div class="row" id="projectsGrid">
+          <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="filter-buttons" role="group" aria-label="Project filters">
+              <button 
+                class="btn filter-btn active" 
+                data-filter="all"
+                aria-pressed="true"
+              >
+                All Projects
+              </button>
+              <button 
+                class="btn filter-btn" 
+                data-filter="website"
+                aria-pressed="false"
+              >
+                Websites
+              </button>
+              <button 
+                class="btn filter-btn" 
+                data-filter="profile"
+                aria-pressed="false"
+              >
+                Company Profiles
+              </button>
+            </div>
+          </div>
+          <div class="row" id="projectsGrid" role="region" aria-live="polite">
             <!-- Projects will be dynamically added here -->
           </div>
         </div>
@@ -337,55 +403,78 @@
         </div>
       </section>
 
-      <section id="blog" class="blog py-5 bg-light">
-        <div class="container">
-          <h2 class="text-center mb-5" data-aos="fade-up">Blog</h2>
-          <div class="row" id="blogPosts">
-            <!-- Blog posts will be dynamically added here -->
-          </div>
-        </div>
-      </section>
-
       <section id="contact" class="contact py-5">
         <div class="container">
-          <h2 class="text-center mb-5" data-aos="fade-up">Get in Touch</h2>
+          <div class="text-center mb-5">
+            <h2 data-aos="fade-up">Get in Touch</h2>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">
+              Ready to start your next project? Let's work together!
+            </p>
+          </div>
           <div class="row justify-content-center">
-            <div class="col-md-8">
-              <form id="contact-form" data-aos="fade-up">
-                <div class="mb-3">
-                  <label for="name" class="form-label">Your Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="name"
-                    name="name"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Your Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="message" class="form-label">Your Message</label>
-                  <textarea
-                    class="form-control"
-                    id="message"
-                    name="message"
-                    rows="5"
-                    required
-                  ></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">
-                  Send Message
-                </button>
-              </form>
+            <div class="col-lg-8">
+              <div class="contact-form-container" data-aos="fade-up">
+                <form id="contact-form" novalidate>
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <label for="name" class="form-label">Your Name *</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        name="name"
+                        required
+                        aria-describedby="nameError"
+                      />
+                      <div id="nameError" class="invalid-feedback" role="alert"></div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <label for="email" class="form-label">Your Email *</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        required
+                        aria-describedby="emailError"
+                      />
+                      <div id="emailError" class="invalid-feedback" role="alert"></div>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="subject"
+                      name="subject"
+                      placeholder="What's this about?"
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label for="message" class="form-label">Your Message *</label>
+                    <textarea
+                      class="form-control"
+                      id="message"
+                      name="message"
+                      rows="6"
+                      required
+                      aria-describedby="messageError"
+                      placeholder="Tell me about your project..."
+                    ></textarea>
+                    <div id="messageError" class="invalid-feedback" role="alert"></div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                      <span class="btn-text">Send Message</span>
+                      <span class="btn-loading d-none">
+                        <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+                        Sending...
+                      </span>
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -393,31 +482,63 @@
     </main>
 
     <footer class="py-4 bg-dark text-white">
-      <div class="container text-center">
-        <p>&copy; 2025 Jacob Wambua. All Rights Reserved.</p>
-   
-        <div class="social-icons">
-          <a href="https://github.com/Jake9953" class="github" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/jacob-wambua-17a107153/" class="linkedin" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://twitter.com/Wambuajacobs_O" class="twitter" aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-2 mb-md-0">&copy; 2025 Jacob Wambua. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6">
+            <div class="social-icons">
+              <a 
+                href="https://github.com/Jake9953" 
+                class="github" 
+                aria-label="Visit Jacob's GitHub profile"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/jacob-wambua-17a107153/" 
+                class="linkedin" 
+                aria-label="Connect with Jacob on LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a 
+                href="https://twitter.com/Wambuajacobs_O" 
+                class="twitter" 
+                aria-label="Follow Jacob on Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a 
+                href="https://wa.me/254111309187" 
+                class="whatsapp" 
+                aria-label="Contact Jacob on WhatsApp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
 
-    <button id="back-to-top" class="btn btn-primary" aria-label="Back to top">
-      <i class="fas fa-arrow-up"></i>
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <!-- Scripts -->    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>    <script src="assets/js/main.js"></script>
   </body>
 </html>
