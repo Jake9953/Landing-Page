@@ -383,6 +383,13 @@ class SkillsManager {
 
   init() {
     if (!this.skillsMatrix) return;
+
+    // Check if skills are already rendered to prevent duplication
+    if (this.skillsMatrix.children.length > 0) {
+      console.warn('Skills already rendered, skipping re-render');
+      return;
+    }
+
     this.renderSkills();
     this.initializeObserver();
   }
@@ -1092,14 +1099,32 @@ class PortfolioApp {
         AOS.init(CONFIG.aos);
       }
 
-      // Initialize core components
-      this.components.themeManager = new ThemeManager();
-      this.components.navigation = new Navigation();
-      this.components.skillsManager = new SkillsManager(SKILLS_DATA);
-      this.components.projectFilter = new ProjectFilter(PROJECTS_DATA);
-      this.components.formHandler = new FormHandler();
-      this.components.backToTop = new BackToTop();
-      this.components.testimonialSlider = new TestimonialSlider(TESTIMONIALS_DATA);
+      // Initialize core components with error handling for each component
+      try { this.components.themeManager = new ThemeManager(); }
+      catch (e) { console.error('Error initializing ThemeManager:', e); }
+
+      try { this.components.navigation = new Navigation(); }
+      catch (e) { console.error('Error initializing Navigation:', e); }
+
+      // Initialize skills manager with a check for the skills container
+      if (document.getElementById('skillsMatrix')) {
+        try { this.components.skillsManager = new SkillsManager(SKILLS_DATA); }
+        catch (e) { console.error('Error initializing SkillsManager:', e); }
+      } else {
+        console.warn('Skills matrix element not found, skipping SkillsManager initialization');
+      }
+
+      try { this.components.projectFilter = new ProjectFilter(PROJECTS_DATA); }
+      catch (e) { console.error('Error initializing ProjectFilter:', e); }
+
+      try { this.components.formHandler = new FormHandler(); }
+      catch (e) { console.error('Error initializing FormHandler:', e); }
+
+      try { this.components.backToTop = new BackToTop(); }
+      catch (e) { console.error('Error initializing BackToTop:', e); }
+
+      try { this.components.testimonialSlider = new TestimonialSlider(TESTIMONIALS_DATA); }
+      catch (e) { console.error('Error initializing TestimonialSlider:', e); }
       
       // Initialize performance monitoring in development
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
