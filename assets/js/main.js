@@ -497,6 +497,16 @@ class ProjectFilter {
 
   init() {
     if (!this.grid) return;
+
+    // Check if projects are already rendered to prevent duplication
+    if (this.grid.children.length > 0) {
+      console.warn('Projects already rendered, skipping re-render');
+      // Just add event listeners for filtering existing content
+      this.addEventListeners();
+      this.addProtectedLinkListeners();
+      return;
+    }
+
     this.addEventListeners();
     this.renderProjects();
   }
@@ -655,6 +665,21 @@ class ProjectFilter {
     return div;
   }
 
+  addProtectedLinkListeners() {
+    // Handle protected links in existing static content
+    const protectedLinks = this.grid.querySelectorAll('.protected-link');
+    protectedLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = link.getAttribute('data-url');
+        const password = link.getAttribute('data-password');
+        const projectName = link.closest('.card-body').querySelector('.card-title').textContent;
+
+        this.handleStaticProtectedAccess({ name: projectName, url, password });
+      });
+    });
+  }
+
   addProtectedLinkListener(container, project) {
     if (!project.protected || !project.url) return;
 
@@ -672,6 +697,19 @@ class ProjectFilter {
     
     if (userPassword === null) return; // User cancelled
     
+    if (userPassword === project.password) {
+      window.open(project.url, '_blank', 'noopener,noreferrer');
+      showNotification(`Access granted to ${project.name}!`, 'success');
+    } else {
+      showNotification('Incorrect password. Please try again.', 'error');
+    }
+  }
+
+  handleStaticProtectedAccess(project) {
+    const userPassword = prompt(`Enter password to access ${project.name}:`);
+
+    if (userPassword === null) return; // User cancelled
+
     if (userPassword === project.password) {
       window.open(project.url, '_blank', 'noopener,noreferrer');
       showNotification(`Access granted to ${project.name}!`, 'success');
@@ -1114,8 +1152,13 @@ class PortfolioApp {
         console.warn('Skills matrix element not found, skipping SkillsManager initialization');
       }
 
-      try { this.components.projectFilter = new ProjectFilter(PROJECTS_DATA); }
-      catch (e) { console.error('Error initializing ProjectFilter:', e); }
+      // Initialize projects filter with a check for the projects container
+      if (document.getElementById('projectsGrid')) {
+        try { this.components.projectFilter = new ProjectFilter(PROJECTS_DATA); }
+        catch (e) { console.error('Error initializing ProjectFilter:', e); }
+      } else {
+        console.warn('Projects grid element not found, skipping ProjectFilter initialization');
+      }
 
       try { this.components.formHandler = new FormHandler(); }
       catch (e) { console.error('Error initializing FormHandler:', e); }

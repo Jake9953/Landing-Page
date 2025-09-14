@@ -1,0 +1,27 @@
+{
+  "name": "Jacob Wambua - Web Developer & IT Consultant",
+  "short_name": "Jacob Wambua",
+  "description": "Expert in web development, IT consulting, logo design, and AI news image creation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/Logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/Logo.webp", 
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}

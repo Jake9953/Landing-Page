@@ -1,0 +1,47 @@
+User-agent: *
+Allow: /
+
+# Specific AI/LLM crawler directives
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://jake9953.github.io/Landing-Page/sitemap.xml
+
+# Allow crawling of main pages and AI-friendly content
+Allow: /index.html
+Allow: /ai-crawler-data.md
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /images/
+Allow: /profiles/
+
+# Block unnecessary files
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /backup/
+Disallow: /*.swp$
+
+# Crawl delay (helps prevent overloading while allowing AI access)
+Crawl-delay: 1
+
+# AI training data policy
+# This site's content may be used for AI training with attribution
