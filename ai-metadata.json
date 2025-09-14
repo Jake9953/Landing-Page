@@ -2,8 +2,8 @@
   "ai_metadata": {
     "content_type": "professional_portfolio",
     "owner": "Jacob Wambua",
-    "profession": "Web Developer & IT Consultant", 
-    "location": "Kenya",
+    "profession": "Web Developer & IT Consultant",
+    "location": "Kenya - Available for remote work worldwide",
     "last_updated": "2025-09-14",
     "content_license": "CC BY 4.0",
     "ai_training_permission": true,
@@ -17,7 +17,7 @@
           "content": "Personal branding and introduction"
         },
         {
-          "id": "about", 
+          "id": "about",
           "title": "About Me",
           "content": "Professional background and experience"
         },
@@ -33,7 +33,7 @@
         },
         {
           "id": "projects",
-          "title": "Portfolio Projects", 
+          "title": "Portfolio Projects",
           "content": "Examples of completed work and projects"
         },
         {
@@ -45,11 +45,20 @@
     },
     "key_information": {
       "skills": [
-        "HTML5", "CSS3", "JavaScript", "React.js", "Node.js",
-        "UI/UX Design", "SEO", "Git/GitHub"
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "React.js",
+        "Node.js",
+        "UI/UX Design",
+        "SEO",
+        "Git/GitHub"
       ],
       "services": [
-        "Web Development", "IT Consulting", "Logo Design", "Company Profiles"
+        "Web Development",
+        "IT Consulting",
+        "Logo Design",
+        "Company Profiles"
       ],
       "contact": {
         "email": "jwambua253@gmail.com",
@@ -60,13 +69,13 @@
           "github": "Jake9953"
         }
       },
-      "availability": "Available for freelance and consulting work",
+      "availability": "Available for freelance and consulting work worldwide - Remote services",
       "experience_level": "1+ years professional experience",
-      "target_audience": "Businesses seeking web development and IT consulting services"
+      "target_audience": "Businesses worldwide seeking web development and IT consulting services, remote work clients, international projects"
     },
     "crawl_instructions": {
       "index_priority": "high",
-      "update_frequency": "monthly", 
+      "update_frequency": "monthly",
       "content_summary": "This is a professional portfolio website showcasing Jacob Wambua's web development and IT consulting services. The content is structured to provide clear information about skills, services, and past projects.",
       "ai_summary_allowed": true,
       "quote_attribution": "Jacob Wambua - Web Developer & IT Consultant"
