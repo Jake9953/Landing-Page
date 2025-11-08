@@ -386,7 +386,8 @@ class SkillsManager {
 
     // Check if skills are already rendered to prevent duplication
     if (this.skillsMatrix.children.length > 0) {
-      console.warn('Skills already rendered, skipping re-render');
+      // Skills already rendered, just initialize observer
+      this.initializeObserver();
       return;
     }
 
@@ -500,8 +501,7 @@ class ProjectFilter {
 
     // Check if projects are already rendered to prevent duplication
     if (this.grid.children.length > 0) {
-      console.warn('Projects already rendered, skipping re-render');
-      // Just add event listeners for filtering existing content
+      // Projects already rendered, just add event listeners for filtering
       this.addEventListeners();
       this.addProtectedLinkListeners();
       return;
@@ -1081,11 +1081,19 @@ class PerformanceMonitor {
     // Monitor page load performance
     window.addEventListener('load', () => {
       if ('performance' in window) {
-        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-        console.log(`Page loaded in ${loadTime}ms`);
-        
-        // Log Core Web Vitals if available
-        this.measureCoreWebVitals();
+        // Use setTimeout to ensure loadEventEnd is populated
+        setTimeout(() => {
+          const perfData = performance.timing;
+          const loadTime = perfData.loadEventEnd - perfData.navigationStart;
+          
+          // Only log if we have valid timing data
+          if (loadTime > 0) {
+            console.log(`Page loaded in ${loadTime}ms`);
+          }
+          
+          // Log Core Web Vitals if available
+          this.measureCoreWebVitals();
+        }, 0);
       }
     });
   }
